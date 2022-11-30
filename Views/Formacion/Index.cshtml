@@ -1,0 +1,136 @@
+﻿@model VitaeSystem.Models.ListasSolicitantes
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="trabajadores" class="card">
+
+        <div id="cartaheader" class="card-header">
+            Administrar Formacion del Solicitante <div id="espacio-solicitante">@foreach (var item in Model.listaFormaciones){<div id="xd"><p>@item.OBsolicitante.Nombres</p></div>}</div>
+        </div>
+
+        <div id="parte-boton" class="card-body">
+             <div class="row justify-content-start">
+                 <div class="col" style="display:flex !important;">
+                     <div id="botonetes">
+                        @foreach (var item in Model.listaFormaciones)
+                        {
+                            @if (item.OBsolicitante.IdestadoSolicitante == 1)
+                            {
+                                <div id="dc">
+                                    <a id="btnTrabajador" asp-action="Formacion_Detalle" asp-controller="Formacion" asp-route-idformacion="0" class="btn"><i class="bi bi-person-plus-fill"></i> Agregar Formaciones</a>
+                                    <a style="margin-left: 20px" id="btnRegresar" asp-action="Index" asp-controller="Solicitante" class="btn"><i class="bi bi-box-arrow-left"></i> Regresar</a>
+                                </div>
+                            }
+                            else if (item.OBsolicitante.IdestadoSolicitante == 2)
+                            {
+                                <div id="dc">
+                                    <a style="margin-left: 20px" id="btnRegresar" asp-action="Aceptados" asp-controller="Solicitante" class="btn"><i class="bi bi-box-arrow-left"></i> Regresar</a>
+                                </div>
+                            }
+                            else if (item.OBsolicitante.IdestadoSolicitante == 3)
+                            {
+                                <div id="dc">
+                                    <a style="margin-left: 20px" id="btnRegresar" asp-action="Rechazados" asp-controller="Solicitante" class="btn"><i class="bi bi-box-arrow-left"></i> Regresar</a>
+                                </div>
+                            }
+                        } 
+                     </div> 
+                 </div>
+             </div>
+        </div>
+
+        <div class="card-body" style="height: 79.5vh">
+
+            <div id="scroll" class="container">
+
+                <div id="cuadro" class="row row-cols-2">                       
+                
+                @foreach (var item in Model.listaFormaciones)
+                {
+                    
+                    <div id="tarjetas-formacion" class="card">
+                        <div class="card-body">
+
+                            <div id="" class="row">
+
+                                <div id="cajon-formacion" class="col">
+
+                                    <ul>
+                                        <li><div id="franja-formacion2"><i class="bi bi-person-circle"></i>&nbsp;</div></li>
+                                        <li><div id="datos-formacion2">@item.OBsolicitante.Nombres</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><div id="franja-formacion"><i class="bi bi-bookmark-check-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-formacion">@item.Titulo</div></li>
+                                    </ul>
+
+                                    <ul>
+                                        <li><div id="franja-formacion"><i class="bi bi-building-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-formacion">@item.InstitucionProcedencia</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><div id="franja-formacion2"><i class="bi bi-calendar-check-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-formacion2">@item.FechaFormacion</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><div id="franja-formacion"><i class="bi bi-book-half"></i>&nbsp;</div></li>
+                                        <li><div id="datos-formacion">@item.AreaFormacion</div></li>
+                                    </ul>
+                                    
+                                </div>
+
+                                <div id="cajon-formacion2" class="col">
+
+                                    <ul>
+                                        <li><div id="franja-formacion"><i class="bi bi-postcard-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-formacion">@item.CargoOcupacion</div></li>
+                                    </ul>
+
+                                    <ul>
+                                        <li><div id="franja-formacion"><i class="bi bi-buildings-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-formacion">@item.InstitucionTrabajo</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><div id="franja-formacion2"><i class="bi bi-calendar2-check-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-formacion2">@item.FechaTrabajo</div></li>
+                                    </ul>
+                                    <ul id="espacioBoton">
+                                        
+                                        @if (item.OBsolicitante.IdestadoSolicitante == 1)
+                                        {
+                                            <li><a id="editarFormacion" asp-controller="Formacion" asp-action="Formacion_Detalle" asp-route-idformacion="@item.Idformacion" class="btn btn-outline-warning"><i class="bi bi-arrow-up-right-circle-fill"></i> Editar Formacion</a></li>
+                                        }
+                                        else if (item.OBsolicitante.IdestadoSolicitante == 2)
+                                        {
+                                            <li><div id="editarFormacion" class="btn btn-outline-warning"><i class="bi bi-x-circle-fill"></i> No esta Editable</div></li>
+                                        }
+                                        else if (item.OBsolicitante.IdestadoSolicitante == 3)
+                                        {
+                                            <li><div id="editarFormacion" class="btn btn-outline-warning"><i class="bi bi-x-circle-fill"></i> No esta Editable</div></li>
+                                        }
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                }                   
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+<!-- <div class=""></div> -->
+
+

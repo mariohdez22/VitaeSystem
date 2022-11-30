@@ -1,0 +1,144 @@
+﻿@model VitaeSystem.Models.ViewModels.TrabajadorE
+@{
+    ViewData["Title"] = "Trabajador_Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="Atrabajador" class="card">
+
+        @if (Model.OBtrabajador.Idtrabajador == 0)
+        {
+            <div id="cartaheader" class="card-header">
+                Crear Trabajador
+            </div>
+        }
+        else
+        {
+            <div id="cartaheader" class="card-header">
+                Editar Trabajador <div id="espacio-solicitante"><div id="xd"><p>@Model.OBtrabajador.Nickname<p></div></div>
+            </div>
+        }
+
+        <div class="card-body">
+
+            <form asp-action="Trabajador_Detalle" asp-controller="Trabajador" method="post">
+
+                <input type="hidden" class="form-control" asp-for="OBtrabajador.Idtrabajador" id="Id" aria-describedby="IDs">  
+
+                <div class="row">
+
+                    <div class="col">
+
+                    @if (Model.OBtrabajador.Idtrabajador == 0)
+                    {
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nombre</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBtrabajador.Nombre">
+                            </div>
+                            <div id="nombres" class="form-text">Agrege el nombre del usuario a guardar</div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nombre</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
+                                <input id="textbox" style="background-color: #D5D5D5;" type="text" placeholder="ingresar..." class="form-control" required asp-for="OBtrabajador.Nombre" readonly>
+                            </div>
+                            <div id="nombres" class="form-text">Nombre de usuario no modificable luego de añadido</div>
+                        </div>
+                    }
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Celular</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-phone-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBtrabajador.Telefono">
+                            </div>
+                            <div id="celulares" class="form-text">Agrege un celular para futuros contactos / llamadas</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-phone-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBtrabajador.Email">
+                            </div>
+                            <div id="emails" class="form-text">Agrege un email para envios de reportes</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nickname</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-phone-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBtrabajador.Nickname">
+                            </div>
+                            <div id="emails" class="form-text">Agrege un nickname como un alias</div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Estado de trabajador</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-video"></i></span>
+                                <select id="textbox" class="form-select" required asp-for="OBtrabajador.IdestadoTrabajador" asp-items="@Model.listaEstado">
+                                    <option value="selected disable">Seleccionar Estado...</option>
+                                </select>
+                            </div>
+                            <div id="estados" class="form-text">Agrege el estado en el que el trabajdor se encuentra</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Tipo de trabajador</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-video"></i></span>
+                                <select id="textbox" class="form-select" required asp-for="OBtrabajador.IdtipoTrabajador" asp-items="@Model.listaTipo">
+                                    <option value="selected disable">Seleccionar Tipo...</option>
+                                </select>
+                            </div>
+                            <div id="tipos" class="form-text">Agrege el tipo en el que el trabajdor se encuentra</div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div id="foti" class="card bg-warning text-dark bg-opacity-25">
+                            <img src="https://img.freepik.com/vector-gratis/pack-iconos-diferentes-personas-dibujadas-mano_23-2149087166.jpg?w=2000" class="card-img-top" alt="...">
+                            <div id="foti2" class="card-body">
+                                <h5 class="card-title">Administrar Trabajadores</h5>
+                                <p class="card-text">Apartado para administrar los trabajadores del sistema Vitae System</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                @if (Model.OBtrabajador.Idtrabajador == 0)
+                {
+
+                    <button id="boton1" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Agregar</button>
+
+                }
+                else
+                {
+
+                    <button id="botonA" type="submit" class="btn btn-warning" style="color: white;"><i class="bi bi-plus-circle"></i> Editar</button>
+
+                }
+
+                    <a id="boton2" asp-action="Index" asp-controller="Trabajador" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
+
+            </form>
+
+        </div>
+
+    </div>
+

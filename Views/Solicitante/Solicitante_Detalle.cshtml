@@ -1,0 +1,187 @@
+﻿@model VitaeSystem.Models.ViewModels.InfoSolicitanteE
+@{
+    ViewData["Title"] = "Solicitante_Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="Atrabajador" class="card">
+
+        @if (Model.OBinfoSolicitante.Idsolicitante == 0)
+        {
+            <div id="cartaheader" class="card-header">
+                Crear Info de Solicitante
+            </div>
+        }
+        else
+        {
+            <div id="cartaheader" class="card-header">
+                Editar Info de Solicitante  <div id="espacio-solicitante"><div id="xd"><p>@Model.OBinfoSolicitante.Nombres<p></div></div> 
+            </div>
+        }
+
+        <div class="card-body">
+
+            <form asp-action="Solicitante_Detalle" asp-controller="Solicitante" method="post">
+
+                <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.Idsolicitante" id="Id" aria-describedby="IDs">  
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Trabajador</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-video"></i></span>
+                                <select id="textbox" class="form-select" required asp-for="OBinfoSolicitante.Idtrabajador" asp-items="@Model.listaTrabajador">
+                                    <option value="selected disable">Seleccionar Trabajador...</option>
+                                </select>
+                            </div>
+                            <div id="tipos" class="form-text">Agrege el trabajador que esta agregando/editando</div>
+                        </div>
+
+                    @if (Model.OBinfoSolicitante.Idsolicitante == 0)
+                    {
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nombres</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBinfoSolicitante.Nombres">
+                            </div>
+                            <div id="nombres" class="form-text">Agrege el nombre del solicitante a guardar</div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nombres</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
+                                <input id="textbox" style="background-color: #D5D5D5;" type="text" placeholder="ingresar..." class="form-control" required asp-for="OBinfoSolicitante.Nombres" readonly>
+                            </div>
+                            <div id="nombres" class="form-text">Nombre de solicitante no modificable luego de añadido</div>
+                        </div>
+                    }
+
+                    @if (Model.OBinfoSolicitante.Idsolicitante == 0)
+                    {
+                        <div class="mb-3">
+                            <label for="" class="form-label">Apellidos</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBinfoSolicitante.Apellidos">
+                            </div>
+                                <div id="nombres" class="form-text">Agrege el Apellido del solicitante a guardar</div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="mb-3">
+                                <label for="" class="form-label">Apellidos</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
+                                <input id="textbox" style="background-color: #D5D5D5;" type="text" placeholder="ingresar..." class="form-control" required asp-for="OBinfoSolicitante.Apellidos" readonly>
+                            </div>
+                            <div id="nombres" class="form-text">Apellido de solicitante no modificable luego de añadido</div>
+                        </div>
+                    }
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Celular</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-phone-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBinfoSolicitante.Celular">
+                            </div>
+                            <div id="celulares" class="form-text">Agrege un celular para futuros contactos / llamadas</div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBinfoSolicitante.Email">
+                            </div>
+                            <div id="emails" class="form-text">Agrege un email para envios de reportes</div>
+                        </div>
+
+                         <div class="mb-3">
+                            <label for="" class="form-label">Departamento / vivienda</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-house-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBinfoSolicitante.DeptoVivienda">
+                            </div>
+                            <div id="emails" class="form-text">Agrege una direccion de vivienda</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Objetivo</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-tags-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBinfoSolicitante.Objetivo">
+                            </div>
+                            <div id="emails" class="form-text">Agrege un objetivo de presentacion</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Foto</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-image-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBinfoSolicitante.Foto">
+                            </div>
+                            <div id="emails" class="form-text">Agrege una foto para el perfil</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Estado del Solicitante</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-fill-exclamation"></i></span>
+                                <select id="textbox" class="form-select" required asp-for="OBinfoSolicitante.IdestadoSolicitante" asp-items="@Model.listaEstado">
+                                    <option value="selected disable">Seleccionar Estado...</option>
+                                </select>
+                            </div>
+                            <div id="tipos" class="form-text">Agrege el estado del solicitante</div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div id="foti" class="card bg-warning text-dark bg-opacity-25">
+                            <img src="https://img.freepik.com/vector-gratis/pack-iconos-diferentes-personas-dibujadas-mano_23-2149087166.jpg?w=2000" class="card-img-top" alt="...">
+                            <div id="foti2" class="card-body">
+                                <h5 class="card-title">Administrar Solicitantes</h5>
+                                <p class="card-text">Apartado para administrar los solicitantes del sistema Vitae System</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                @if (Model.OBinfoSolicitante.Idsolicitante == 0)
+                {
+
+                    <button id="botonUNO" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Agregar</button>
+
+                }
+                else
+                {
+
+                    <button id="botonAA" type="submit" class="btn btn-warning" style="color: white;"><i class="bi bi-plus-circle"></i> Editar</button>
+
+                }
+
+                    <a id="botonDOS" asp-action="Index" asp-controller="Solicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+

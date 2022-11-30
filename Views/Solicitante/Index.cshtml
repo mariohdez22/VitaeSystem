@@ -1,0 +1,106 @@
+﻿@model List<VitaeSystem.Models.InfoSolicitante> 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="trabajadores" class="card">
+
+        <div id="cartaheader" class="card-header">
+            Administrar Solicitantes
+        </div>
+
+        <div id="parte-boton" class="card-body">
+            <div class="row">
+                <div class="col">
+                    <a id="btnTrabajador" asp-action="Solicitante_Detalle" asp-controller="Solicitante" asp-route-idtrabajador="0" class="btn"><i class="bi bi-person-plus-fill"></i> Agregar Solicitantes</a>
+                </div>
+                <div class="col">
+                    <form asp-controller="Solicitante" asp-action="Index">
+                        <div style="width: 20vw; margin-left: 14.2vw;">
+                            <div class="input-group">
+                                <span id="spansBuscar" class="input-group-text"><i class="bi bi-search"></i></span>
+                                <input id="textboxBuscar" name="buscar" type="text" placeholder="buscar..." class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body" style="height: 79.5vh">
+
+            <div id="scroll" class="container">
+
+                <div id="cuadro" class="row row-cols-2">                       
+                
+                @foreach (var item in Model)
+                {
+                    <div id="tarjetas-solicitantes" class="card">
+                        <div class="card-body">
+
+                            <div id="fila" class="row">
+
+                                <div id="colColor" class="col">
+                                    <div id="apartado-imagen">
+                                        <img src="@item.Foto" width="120" height="100">
+                                    </div>
+                                    <div id="nombre-solicitante">
+                                        <ul>
+                                            <li><div id="negrita"><i class="bi bi-person-video"></i></div>&nbsp; @item.Nombres</li>
+                                            <li><div id="negrita"><i class="bi bi-person-video2"></i></div>&nbsp; @item.Apellidos</li>
+                                        </ul>
+                                    </div>
+                                    <div id="parte-correo">
+                                        <p><i class="bi bi-envelope-fill"></i>&nbsp; @item.Email</p>
+                                    </div>
+                                    <div id="botones-solicitante">
+                                        <ul>
+                                            <li><a id="editarSolicitante" asp-action="Solicitante_Detalle" asp-controller="Solicitante" asp-route-idsolicitante="@item.Idsolicitante" class="btn btn-outline-warning"><i class="bi bi-arrow-up-right-circle-fill"></i> Editar</a></li>
+                                            <li><a id="eliminarSolicitante" asp-action="Eliminar" asp-controller="Trabajador" asp-route-idtrabajador="@item.Idtrabajador" class="btn btn-outline-danger"><i class="bi bi-x-circle-fill"></i> Rechazar</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div id="cajon-solicitante" class="col">
+                                    <ul>
+                                        <li><div id="franja-solicitante"><i class="bi bi-phone-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-solicitante">@item.Celular</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><div id="franja-solicitante2"><i class="bi bi-check-circle-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-solicitante2">@item.Objetivo</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><div id="franja-solicitante3"><i class="bi bi-houses-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-solicitante3">@item.DeptoVivienda</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><div id="franja-solicitante4"><i class="bi bi-person-fill-exclamation"></i>&nbsp;</div></li>
+                                        <li><div id="datos-solicitante4">@item.OBestadoSolicitante.EstadoSolicitante1</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><div id="franja-solicitante5"><i class="bi bi-person-fill-gear"></i>&nbsp;</div></li>
+                                        <li><div id="datos-solicitante5">@item.OBtrabajador.Nickname</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a id="btnFormacion" asp-controller="Formacion" asp-action="Index" asp-route-idsolicitante="@item.Idsolicitante" class="btn btn-outline-warning"><i class="bi bi-bookmark-check-fill"></i></a></li>
+                                        <li><a id="btnDestrezas" asp-controller="Destrezas" asp-action="Index" asp-route-idsolicitante="@item.Idsolicitante" class="btn btn-outline-warning"><i class="bi bi-clipboard2-check-fill"></i></a></li>
+                                        <li><a id="btnReferencias" asp-controller="Referencias" asp-action="Index"  asp-route-idsolicitante="@item.Idsolicitante" class="btn btn-outline-warning"><i class="bi bi-person-vcard-fill"></i></a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>    
+                }                   
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+

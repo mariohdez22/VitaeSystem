@@ -1,0 +1,122 @@
+﻿@model VitaeSystem.Models.ViewModels.InfoSolicitanteE
+@{
+    ViewData["Title"] = "Solicitante_Rechazado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="Atrabajador" class="card">
+
+        @if (Model.OBinfoSolicitante.Idsolicitante == 0)
+        {
+            <div id="cartaheader" class="card-header">
+                Crear Info de Solicitante 
+            </div>
+        }
+        else
+        {
+            <div id="cartaheader" class="card-header">
+                Editar Info de Solicitante <div id="espacio-solicitante"><div id="xd"><p>@Model.OBinfoSolicitante.Nombres<p></div></div>
+            </div>
+        }
+
+        <div class="card-body">
+
+            <form asp-action="Solicitante_Rechazado" asp-controller="Solicitante" method="post">
+
+                <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.Idsolicitante" id="Id">  
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Trabajador</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-video"></i></span>
+                                <select type="hidden" id="textbox" class="form-select" required asp-for="OBinfoSolicitante.Idtrabajador" asp-items="@Model.listaTrabajador">
+                                    <option value="selected disable">Seleccionar Trabajador...</option>
+                                </select>
+                            </div>
+                            <div id="tipos" class="form-text">Modificar o manetener el trabajador que actualiza</div>
+                        </div>
+
+                    @if (Model.OBinfoSolicitante.Idsolicitante == 0)
+                    {
+                        <div class="mb-3"></div>
+                    }
+                    else
+                    {
+                         <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.Nombres" readonly>
+                    }
+
+                    @if (Model.OBinfoSolicitante.Idsolicitante == 0)
+                    {
+                        <div class="mb-3"></div>
+                    }
+                    else
+                    {
+                        <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.Apellidos" readonly>
+                    }
+
+                        <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.Celular">
+
+                    </div>
+
+                    <div class="col">
+
+                        <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.Email">
+
+                        <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.DeptoVivienda">
+
+                        <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.Objetivo">
+
+                        <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.Foto">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Estado del Solicitante</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-fill-exclamation"></i></span>
+                                <select id="textbox" class="form-select" required asp-for="OBinfoSolicitante.IdestadoSolicitante" asp-items="@Model.listaEstado">
+                                    <option value="selected disable">Seleccionar Estado...</option>
+                                </select>
+                            </div>
+                            <div id="tipos" class="form-text">Modifique el estado del solicitante</div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div id="foti" class="card bg-warning text-dark bg-opacity-25">
+                            <img src="https://img.freepik.com/vector-gratis/pack-iconos-diferentes-personas-dibujadas-mano_23-2149087166.jpg?w=2000" class="card-img-top" alt="...">
+                            <div id="foti2" class="card-body">
+                                <h5 class="card-title">Modificar Solicitantes (Rechazados)</h5>
+                                <p class="card-text">Apartado para modificar los solicitantes Aceptados del sistema</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                @if (Model.OBinfoSolicitante.Idsolicitante == 0)
+                {
+
+                    <button id="botonUNO" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Agregar</button>
+
+                }
+                else
+                {
+
+                    <button id="botonAA" type="submit" class="btn btn-warning" style="color: white; margin-top: 5.8vh !important;"><i class="bi bi-plus-circle"></i> Editar</button>
+
+                }
+
+                    <a id="botonDOS" style="margin-top: 5.8vh !important;" asp-action="Rechazados" asp-controller="Solicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
+
+            </form>
+
+        </div>
+
+    </div>
+

@@ -1,0 +1,96 @@
+﻿@model List<VitaeSystem.Models.Trabajador>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="trabajadores" class="card">
+
+        <div id="cartaheader" class="card-header">
+            Administrar Trabajadores
+        </div>
+
+        <div id="parte-boton" class="card-body">
+            <div class="row">
+                <div class="col">
+                    <a id="btnTrabajador" asp-action="Trabajador_Detalle" asp-controller="Trabajador" asp-route-idtrabajador="0" class="btn"><i class="bi bi-person-plus-fill"></i> Agregar Trabajadores</a>
+                </div>
+                <div class="col">
+                    <form asp-controller="Trabajador" asp-action="Index">
+                        <div style="width: 20vw; margin-left: 14.2vw;">
+                            <div class="input-group">
+                                <span id="spansBuscar" class="input-group-text"><i class="bi bi-search"></i></span>
+                                <input id="textboxBuscar" name="buscar" type="text" placeholder="buscar..." class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body" style="height: 79.5vh">
+
+            <div id="scroll" class="container">
+
+            @foreach (var item in Model)
+            {
+                <div id="tarjetas-trabajador" class="card" style="height: 23.5vh;">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div id="contenido" class="col">
+                                <ul>
+                                    <li><div id="franja">Nombre <i class="bi bi-people-fill"></i></div></li>
+                                    <li><div id="datos">@item.Nombre</div></li>
+                                </ul>
+                            </div>
+                            <div id="contenido" class="col">
+                                <ul>
+                                        <li><div id="franja">Celular <i class="bi bi-phone-fill"></i></div></li>
+                                    <li><div id="datos">@item.Telefono</div></li>
+                                </ul>
+                            </div>
+                            <div id="contenido" class="col">
+                                <ul>
+                                    <li><div id="franja">Email <i class="bi bi-envelope-fill"></i></div></li>
+                                    <li><div id="datos">@item.Email</div></li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <a id="btnEditar" asp-action="Trabajador_Detalle" asp-controller="Trabajador" asp-route-idtrabajador="@item.Idtrabajador" class="btn btn-outline-warning"><i class="bi bi-arrow-up-right-circle-fill"></i> Editar</a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div id="contenido" class="col">
+                                <ul>
+                                    <li><div id="franja">NickName <i class="bi bi-file-person"></i></div></li>
+                                    <li><div id="datos">@item.Nickname</div></li>
+                                </ul>
+                            </div>
+                            <div id="contenido" class="col">
+                                <ul>
+                                    <li><div id="franja">Estado Trabajador <i class="bi bi-person-video"></i></div></li>
+                                    <li><div id="datos">@item.OBestadoTrabajador.EstadoTrabajador1</div></li>
+                                </ul>
+                            </div>
+                            <div id="contenido" class="col">
+                                <ul>
+                                    <li><div id="franja">Tipo Trabajador <i class="bi bi-person-video2"></i></div></li>
+                                    <li><div id="datos">@item.OBtipoTrabajador.TipoTrabajador1</div></li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <a id="btnEliminar" asp-action="Eliminar" asp-controller="Trabajador" asp-route-idtrabajador="@item.Idtrabajador" class="btn btn-outline-danger"><i class="bi bi-x-circle-fill"></i> Eliminar</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>    
+            }      
+
+            </div>
+
+        </div>
+
+    </div>
