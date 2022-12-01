@@ -13,8 +13,6 @@ namespace VitaeSystem.Models
 
         public List<FormacionProfecional> listaFormaciones { get; set; }
 
-        public FormacionProfecional ObjetoFormacion { get; set; }
-
         //--------------------------------------------------------------
 
         public List<Destreza> listaDestrezas { get; set; }

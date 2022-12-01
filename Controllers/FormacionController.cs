@@ -26,7 +26,6 @@ namespace VitaeSystem.Controllers
                                                                      .ToList()
             };
 
-
             return View(formacion);
         }
 
