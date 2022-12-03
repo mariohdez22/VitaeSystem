@@ -3,12 +3,11 @@
 
 namespace VitaeSystem.Models.ViewModels
 {
-    public class FormacionProfecionalE
+    public class FormacionProfecionalE // clase para vista de carga de datos
     {
+        public FormacionProfecional OBformacionProfecional { get; set; } // objeto de la clase formacion
 
-        public FormacionProfecional OBformacionProfecional { get; set; }
-
-        public List<SelectListItem> listaSolicitante { get; set; }
+        public List<SelectListItem> listaSolicitante { get; set; } // propiedad lista para select de solicitantes
 
     }
 }
