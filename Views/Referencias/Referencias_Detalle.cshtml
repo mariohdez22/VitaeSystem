@@ -1,0 +1,122 @@
+﻿@model VitaeSystem.Models.ViewModels.ReferenciaE
+@{
+    ViewData["Title"] = "Referencias_Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="Atrabajador" class="card">
+
+    @if (Model.OBreferencia.Idreferencias == 0)
+        {
+            <div id="cartaheader" class="card-header">
+                Agregar Referencias
+            </div>
+        }
+        else
+        {
+            <div id="cartaheader" class="card-header">
+                Editar Referencias 
+            </div>
+        }
+
+        <div class="card-body">
+
+            <form asp-action="Referencias_Detalle" asp-controller="Referencias" asp-route-idsolicitante="@Model.OBreferencia.Idsolicitante" method="post">
+
+                <input type="hidden" class="form-control" asp-for="OBreferencia.Idreferencias" id="Id" aria-describedby="IDs">  
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Solicitante</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-video"></i></span>
+                                <select id="textbox" class="form-select" required asp-for="OBreferencia.Idsolicitante" asp-items="@Model.listaSolicitante">
+                                    <option value="selected disable">Seleccionar Solicitante...</option>
+                                </select>
+                            </div>
+                            <div id="" class="form-text">Nombre del solicitante (No modificable)</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Referente Personal</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-bookmark-star-fill"></i></span>
+                            <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBreferencia.ReferentePersonal">
+                            </div>
+                            <div id="" class="form-text">Agregue el nombre del refente personal</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="" class="form-label">Cel del referente personal</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-clipboard2-data-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBreferencia.CellRefPersonal">
+                            </div>
+                            <div id="" class="form-text">Agrege el celular del referente personal</div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Referente de trabajo</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-pentagon-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBreferencia.ReferenteTrabajo">
+                            </div>
+                            <div id="" class="form-text">Agrege el nombre del referente de trabajo</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="" class="form-label">Cel del referente del trabajo</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-clipboard2-data-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBreferencia.CellRefTrabajo">
+                            </div>
+                            <div id="" class="form-text">Agrege el celular del referente de trabajo</div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+
+                        <div id="fotiA" class="card bg-warning text-dark bg-opacity-25">
+                            <img src="http://observatorio.tec.mx/wp-content/uploads/2022/05/bigstock-Skill-Development-Vector-Conce-294527137.jpeg" class="card-img-top" alt="...">
+                            <div id="fotiB" class="card-body">
+                                <h5 class="card-title">Administrar Referencias</h5>
+                                <p class="card-text">Apartado para administrar las Referencias del los solicitantes</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                @if (Model.OBreferencia.Idreferencias == 0)
+                {
+
+                    <button id="boton1" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Agregar</button>
+
+                     <a id="boton2" asp-action="Index" asp-controller="Solicitante" asp-route-idsolicitante="@Model.OBreferencia.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
+
+                }
+                else
+                {
+
+                    <button id="botonA" type="submit" class="btn btn-warning" style="color: white;"><i class="bi bi-plus-circle"></i> Editar</button>
+
+                    <a id="boton2" asp-action="Index" asp-controller="Referencias" asp-route-idsolicitante="@Model.OBreferencia.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
+
+                }
+
+                    
+
+            </form>
+
+        </div>
+
+    </div>
+

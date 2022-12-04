@@ -3,23 +3,22 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
     <div id="trabajadores" class="card">
 
         <div id="cartaheader" class="card-header">
-            Administrar Destrezas del Solicitante <div id="espacio-solicitante">@foreach (var item in Model.listaDestrezas){<div id="xd"><p>@item.OBsolicitante.Nombres</p></div>}</div>
+            Administrar Referencias del Solicitante <div id="espacio-solicitante">@foreach (var item in Model.listaReferencias){<div id="xd"><p>@item.OBsolicitante.Nombres</p></div>}</div>
         </div>
 
         <div id="parte-boton" class="card-body">
              <div class="row justify-content-start">
                  <div class="col" style="display:flex !important;">                    
                      <div id="botonetes">
-                        @foreach (var item in Model.listaDestrezas)
+                        @foreach (var item in Model.listaReferencias)
                         {
                             @if (item.OBsolicitante.IdestadoSolicitante == 1)
                             {
                                 <div id="dc">
-                                    <a id="btnTrabajador" asp-action="Destrezas_Detalle" asp-controller="Destrezas" asp-route-idformacion="0" class="btn"><i class="bi bi-person-plus-fill"></i> Agregar Destrezas</a>
+                                    <a id="btnTrabajador" asp-action="Referencias_Detalle" asp-controller="Referencias" asp-route-idformacion="0" class="btn"><i class="bi bi-person-plus-fill"></i> Agregar Referencias</a>
                                     <a style="margin-left: 20px" id="btnRegresar" asp-action="Index" asp-controller="Solicitante" class="btn"><i class="bi bi-box-arrow-left"></i> Regresar</a>
                                 </div>
                             }
@@ -47,7 +46,7 @@
 
                 <div id="cuadro" class="row row-cols-2">                       
                 
-                @foreach (var item in Model.listaDestrezas)
+                @foreach (var item in Model.listaReferencias)
                 {
                     
                     <div id="tarjetas-destreza" class="card">
@@ -62,23 +61,26 @@
                                         <li><div id="datos-destreza2">@item.OBsolicitante.Nombres</div></li>
                                     </ul>
                                     <ul>
-                                        <li><div id="franja-destreza"><i class="bi bi-bookmark-star-fill"></i>&nbsp;</div></li>
-                                        <li><div id="datos-destreza">@item.Habilidades</div></li>
+                                        <li><div id="franja-destreza2"><i class="bi bi-bookmark-star-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-destreza2">@item.ReferentePersonal</div></li>
                                     </ul>
-
                                     <ul>
-                                        <li><div id="franja-destreza"><i class="bi bi-clipboard2-data-fill"></i>&nbsp;</div></li>
-                                        <li><div id="datos-destreza">@item.Competencias</div></li>
+                                        <li><div id="franja-destreza2"><i class="bi bi-clipboard2-data-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-destreza2">@item.CellRefPersonal</div></li>
                                     </ul>
                                     <ul>
                                         <li><div id="franja-destreza2"><i class="bi bi-pentagon-fill"></i>&nbsp;</div></li>
-                                        <li><div id="datos-destreza2">@item.Dominio</div></li>
+                                        <li><div id="datos-destreza2">@item.ReferenteTrabajo</div></li>
+                                    </ul>
+                                    <ul>
+                                        <li><div id="franja-destreza2"><i class="bi bi-pentagon-fill"></i>&nbsp;</div></li>
+                                        <li><div id="datos-destreza2">@item.CellRefTrabajo</div></li>
                                     </ul>
                                     <ul id="espacioBotonDestreza">
 
                                         @if (item.OBsolicitante.IdestadoSolicitante == 1)
                                         {
-                                            <li><a id="editarDestreza" asp-controller="Destrezas" asp-action="Destrezas_Detalle" asp-route-idestreza="@item.Iddestrezas" class="btn btn-outline-warning"><i class="bi bi-arrow-up-right-circle-fill"></i> Editar Destreza</a></li>
+                                            <li><a id="editarDestreza" asp-controller="Referencias" asp-action="Referencias_Detalle" asp-route-idreferencia="@item.Idreferencias" class="btn btn-outline-warning"><i class="bi bi-arrow-up-right-circle-fill"></i> Editar Referencia</a></li>
                                         }
                                         @if (item.OBsolicitante.IdestadoSolicitante == 2)
                                         {
