@@ -19,7 +19,7 @@ public partial class InfoSolicitante // propiedades del modelo solicitante
     [StringLength(9, MinimumLength = 8)] // validacion para restringir maximos y minimos de caracteres agregados
     public string Celular { get; set; } = null!; // propiedad - no es null
 
-    [StringLength(22, MinimumLength = 10)] // validacion para restringir maximos y minimos de caracteres agregados
+    [StringLength(24, MinimumLength = 10)] // validacion para restringir maximos y minimos de caracteres agregados
     public string Email { get; set; } = null!; // propiedad - no es null
 
     [StringLength(42, MinimumLength = 20)] // validacion para restringir maximos y minimos de caracteres agregados

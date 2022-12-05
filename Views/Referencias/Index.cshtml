@@ -13,12 +13,13 @@
              <div class="row justify-content-start">
                  <div class="col" style="display:flex !important;">                    
                      <div id="botonetes">
+                         
                         @foreach (var item in Model.listaReferencias)
                         {
                             @if (item.OBsolicitante.IdestadoSolicitante == 1)
                             {
                                 <div id="dc">
-                                    <a id="btnTrabajador" asp-action="Referencias_Detalle" asp-controller="Referencias" asp-route-idformacion="0" class="btn"><i class="bi bi-person-plus-fill"></i> Agregar Referencias</a>
+                                    <a id="btnTrabajador" asp-action="Referencias_Detalle" asp-controller="Referencias" asp-route-idreferencia="0" class="btn"><i class="bi bi-person-plus-fill"></i> Agregar Referencias</a>
                                     <a style="margin-left: 20px" id="btnRegresar" asp-action="Index" asp-controller="Solicitante" class="btn"><i class="bi bi-box-arrow-left"></i> Regresar</a>
                                 </div>
                             }
@@ -35,6 +36,7 @@
                                 </div>
                             }
                         } 
+
                      </div>
                  </div>
              </div>
@@ -61,22 +63,22 @@
                                         <li><div id="datos-destreza2">@item.OBsolicitante.Nombres</div></li>
                                     </ul>
                                     <ul>
-                                        <li><div id="franja-destreza2"><i class="bi bi-bookmark-star-fill"></i>&nbsp;</div></li>
+                                        <li><div id="franja-destreza2"><i class="bi bi-person-badge-fill"></i>&nbsp;</div></li>
                                         <li><div id="datos-destreza2">@item.ReferentePersonal</div></li>
                                     </ul>
                                     <ul>
-                                        <li><div id="franja-destreza2"><i class="bi bi-clipboard2-data-fill"></i>&nbsp;</div></li>
+                                        <li><div id="franja-destreza2"><i class="bi bi-phone-fill"></i>&nbsp;</div></li>
                                         <li><div id="datos-destreza2">@item.CellRefPersonal</div></li>
                                     </ul>
                                     <ul>
-                                        <li><div id="franja-destreza2"><i class="bi bi-pentagon-fill"></i>&nbsp;</div></li>
+                                        <li><div id="franja-destreza2"><i class="bi bi-person-badge-fill"></i>&nbsp;</div></li>
                                         <li><div id="datos-destreza2">@item.ReferenteTrabajo</div></li>
                                     </ul>
                                     <ul>
-                                        <li><div id="franja-destreza2"><i class="bi bi-pentagon-fill"></i>&nbsp;</div></li>
+                                        <li><div id="franja-destreza2"><i class="bi bi-phone-fill"></i>&nbsp;</div></li>
                                         <li><div id="datos-destreza2">@item.CellRefTrabajo</div></li>
                                     </ul>
-                                    <ul id="espacioBotonDestreza">
+                                    <ul id="espacioBotonReferencia">
 
                                         @if (item.OBsolicitante.IdestadoSolicitante == 1)
                                         {

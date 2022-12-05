@@ -15,19 +15,21 @@ namespace VitaeSystem.Controllers
         {
             _referencias = referencias;
         }
+
         public IActionResult Index(int IDsolicitante)
         {
             ListasSolicitantes referencias = new ListasSolicitantes()
             {
                 listaReferencias = _referencias.Referencias.Where(x => x.Idsolicitante == IDsolicitante)
-                                                     .Include(x => x.OBsolicitante)
-                                                     .ToList()
+                                                           .Include(x => x.OBsolicitante)
+                                                           .ToList()
             };
 
             return View(referencias);
         }
+
         [HttpGet]
-        public IActionResult Referencias_Detalle(int Ireferencia)
+        public IActionResult Referencias_Detalle(int Idreferencia)
         {
 
             ReferenciaE oReferenciaE = new ReferenciaE()
@@ -40,17 +42,18 @@ namespace VitaeSystem.Controllers
                     Text = solicitante.Nombres,
                     Value = solicitante.Idsolicitante.ToString()
 
-                }).ToList()
+                }).ToList(),
 
             };
 
-            if (Ireferencia != 0)
+            if (Idreferencia != 0)
             {
-                oReferenciaE.OBreferencia = _referencias.Referencias.Find(Ireferencia);
+                oReferenciaE.OBreferencia = _referencias.Referencias.Find(Idreferencia);
             }
 
             return View(oReferenciaE);
         }
+
         [HttpPost]
         public IActionResult Referencias_Detalle(ReferenciaE objetoU, int Idsolicitante)
         {
