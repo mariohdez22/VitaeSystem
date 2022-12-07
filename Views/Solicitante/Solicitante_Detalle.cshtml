@@ -57,7 +57,7 @@
                             <label for="" class="form-label">Nombres</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
-                                <input id="textbox" style="background-color: #D5D5D5;" type="text" placeholder="ingresar..." class="form-control" required asp-for="OBinfoSolicitante.Nombres" readonly>
+                                <input id="textbox" style="background-color: #D5D5D5;" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBinfoSolicitante.Nombres" readonly>
                             </div>
                             <div id="nombres" class="form-text">Nombre de solicitante no modificable luego de añadido</div>
                         </div>
@@ -80,7 +80,7 @@
                                 <label for="" class="form-label">Apellidos</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
-                                <input id="textbox" style="background-color: #D5D5D5;" type="text" placeholder="ingresar..." class="form-control" required asp-for="OBinfoSolicitante.Apellidos" readonly>
+                                <input id="textbox" style="background-color: #D5D5D5;" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBinfoSolicitante.Apellidos" readonly>
                             </div>
                             <div id="nombres" class="form-text">Apellido de solicitante no modificable luego de añadido</div>
                         </div>
@@ -90,7 +90,7 @@
                             <label for="" class="form-label">Celular</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-phone-fill"></i></span>
-                                <input id="textbox" type="text" minlength="8" placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBinfoSolicitante.Celular">
+                                <input id="textbox" type="text"  maxlength="8" min placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBinfoSolicitante.Celular">
                             </div>
                             <div id="celulares" class="form-text">Agrege un celular para futuros contactos / llamadas</div>
                         </div>
@@ -103,7 +103,7 @@
                             <label for="" class="form-label">Email</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-                                <input id="textbox" type="text" minlength="15" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBinfoSolicitante.Email">
+                                <input id="textbox" type="email" minlength="15" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBinfoSolicitante.Email">
                             </div>
                             <div id="emails" class="form-text">Agrege un email para envios de reportes</div>
                         </div>
@@ -112,7 +112,7 @@
                             <label for="" class="form-label">Departamento / vivienda</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-house-fill"></i></span>
-                                <input id="textbox" type="text" minlength="30" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBinfoSolicitante.DeptoVivienda">
+                                <input id="textbox" type="text" minlength="30" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetrasAndNumeros(event)" required asp-for="OBinfoSolicitante.DeptoVivienda">
                             </div>
                             <div id="emails" class="form-text">Agrege una direccion de vivienda</div>
                         </div>
@@ -121,7 +121,7 @@
                             <label for="" class="form-label">Objetivo</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-tags-fill"></i></span>
-                                <input id="textbox" type="text" minlength="15" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBinfoSolicitante.Objetivo">
+                                <input id="textbox" type="text" minlength="15" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBinfoSolicitante.Objetivo">
                             </div>
                             <div id="emails" class="form-text">Agrege un objetivo de presentacion</div>
                         </div>

@@ -11,7 +11,7 @@ public partial class Trabajador // propiedades del modelo trabajador
     [StringLength(28, MinimumLength = 10)] // validacion para restringir maximos y minimos de caracteres agregados
     public string Nombre { get; set; } = null!; // propiedad - no es null
 
-    [StringLength(9, MinimumLength = 8)] // validacion para restringir maximos y minimos de caracteres agregados
+    [StringLength(8, MinimumLength = 8)] // validacion para restringir maximos y minimos de caracteres agregados
     public string Telefono { get; set; } = null!; // propiedad - no es null
 
     [StringLength(29, MinimumLength = 10)] // validacion para restringir maximos y minimos de caracteres agregados

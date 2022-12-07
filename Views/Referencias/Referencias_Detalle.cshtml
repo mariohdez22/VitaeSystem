@@ -44,7 +44,7 @@
                             <label for="" class="form-label">Referente Personal</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-person-video2"></i></span>
-                                <input id="textbox" type="text" minlength="10" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBreferencia.ReferentePersonal">
+                                <input id="textbox" type="text" minlength="10" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBreferencia.ReferentePersonal">
                             </div>
                             <div id="" class="form-text">Agregue el nombre del refente personal</div>
                         </div>
@@ -53,7 +53,7 @@
                             <label for="" class="form-label">Cel del referente personal</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-telephone-plus-fill"></i></span>
-                                <input id="textbox" type="text" minlength="9" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBreferencia.CellRefPersonal">
+                                <input id="textbox" type="text" minlength="8" maxlength="8" placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBreferencia.CellRefPersonal">
                             </div>
                             <div id="" class="form-text">Agrege el celular del referente personal</div>
                         </div>
@@ -66,7 +66,7 @@
                             <label for="" class="form-label">Referente de trabajo</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-person-video2"></i></span>
-                                <input id="textbox" type="text" minlength="10" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBreferencia.ReferenteTrabajo">
+                                <input id="textbox" type="text" minlength="10" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBreferencia.ReferenteTrabajo">
                             </div>
                             <div id="" class="form-text">Agrege el nombre del referente de trabajo</div>
                         </div>
@@ -75,7 +75,7 @@
                             <label for="" class="form-label">Cel del referente del trabajo</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-telephone-plus-fill"></i></span>
-                                <input id="textbox" type="text" minlength="9" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBreferencia.CellRefTrabajo">
+                                <input id="textbox" type="text" minlength="8" maxlength="8" placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBreferencia.CellRefTrabajo">
                             </div>
                             <div id="" class="form-text">Agrege el celular del referente de trabajo</div>
                         </div>
