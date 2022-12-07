@@ -1,0 +1,44 @@
+﻿
+body
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/* apartado 1 */
+
+.apartado1 
+{
+    background-color: #FF6969;
+    width: 350px;
+    height: 1405px;
+    padding-top: 60px !important;
+}
+
+.imagen 
+{
+    border-radius: 200px;
+    border: 10px solid #FF8484;
+    overflow: hidden !important;
+    width: 200px;
+    height: 200px;
+    margin-left: 60px;
+    box-shadow: rgba(255, 105, 105, 0.1) 0px 1px 0px, rgba(255, 105, 105, 0.1) 0px 8px 24px, rgba(255, 105, 105, 0.1) 0px 16px 48px;
+}
+
+.imagen img
+{
+    border-radius: 200px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/* apartado 2 */
+
+.apartado2 
+{
+    background-color: #FFF0F0;
+    width: 650px;
+    height: 1405px;
+    padding-top: 60px !important;
+}
