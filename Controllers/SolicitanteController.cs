@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using VitaeSystem.Models.ViewModels;
 using VitaeSystem.Models;
 using System.Diagnostics;
-#pragma warning disable 
+using Rotativa.AspNetCore;
+#pragma warning disable
 
 namespace VitaeSystem.Controllers
 {
@@ -239,6 +240,59 @@ namespace VitaeSystem.Controllers
             _solicitantes.SaveChanges();
 
             return RedirectToAction("Rechazados", "Solicitante");
+        }
+
+        /*------------------------------------------------------------------------------------------------------*/
+        // metodos para la creacion de reportes
+
+        public IActionResult ReporteCurriculum(int idsolicitante)
+        {
+            ModeloSolicitante modelo = _solicitantes.InfoSolicitantes.Include(f => f.FormacionProfecionals).Where(id => id.Idsolicitante == idsolicitante)
+            .Select(s => new ModeloSolicitante()
+            {
+                Nombres = s.Nombres,
+                Apellidos = s.Apellidos,
+                Celular = s.Celular,
+                Email = s.Email,
+                DeptoVivienda = s.DeptoVivienda,
+                Objetivo = s.Objetivo,
+                Foto = s.Foto,
+                formaciones = s.FormacionProfecionals.Select(f => new ModeloFormacion() 
+                { 
+                    Titulo = f.Titulo,
+                    InstitucionProcedencia = f.InstitucionProcedencia,
+                    FechaFormacion = f.FechaFormacion,
+                    AreaFormacion = f.AreaFormacion,
+                    CargoOcupacion = f.CargoOcupacion,
+                    InstitucionTrabajo = f.InstitucionTrabajo,
+                    FechaTrabajo = f.FechaTrabajo
+
+                }).ToList(),
+                destrezas = s.Destrezas.Select(d => new ModeloDestrezas() 
+                { 
+                    Habilidades = d.Habilidades,
+                    Competencias = d.Competencias,
+                    Dominio = d.Dominio
+
+                }).ToList(),
+                referencias = s.Referencia.Select(r => new ModeloReferencias() 
+                {
+                    ReferentePersonal = r.ReferentePersonal,
+                    CellRefPersonal = r.CellRefPersonal,
+                    ReferenteTrabajo = r.ReferenteTrabajo,
+                    CellRefTrabajo = r.CellRefTrabajo
+
+                }).ToList()
+
+            }).FirstOrDefault();
+
+            return new ViewAsPdf("ReporteCurriculum", modelo)
+            {
+                FileName = $"Solicitante {modelo.Nombres}.pdf",
+                PageOrientation = Rotativa.AspNetCore.Options.Orientation.Portrait,
+                PageSize = Rotativa.AspNetCore.Options.Size.A4
+            };
+            
         }
 
     }
