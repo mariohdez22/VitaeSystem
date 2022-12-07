@@ -259,6 +259,7 @@ namespace VitaeSystem.Controllers
                 Foto = s.Foto,
                 formaciones = s.FormacionProfecionals.Select(f => new ModeloFormacion() 
                 { 
+                    Idformacion = f.Idformacion.ToString(),
                     Titulo = f.Titulo,
                     InstitucionProcedencia = f.InstitucionProcedencia,
                     FechaFormacion = f.FechaFormacion,

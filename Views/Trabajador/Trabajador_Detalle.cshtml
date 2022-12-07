@@ -65,7 +65,7 @@
                             <label for="" class="form-label">Email</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-phone-fill"></i></span>
-                                <input id="textbox" type="text" minlength="15" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBtrabajador.Email">
+                                <input id="textbox" type="email" minlength="15" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBtrabajador.Email">
                             </div>
                             <div id="emails" class="form-text">Agrege un email para envios de reportes</div>
                         </div>
@@ -74,7 +74,7 @@
                             <label for="" class="form-label">Nickname</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-phone-fill"></i></span>
-                                <input id="textbox" type="text" minlength="5" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBtrabajador.Nickname">
+                                <input id="textbox" type="text" minlength="5" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetrasAndNumeros(event)" required asp-for="OBtrabajador.Nickname">
                             </div>
                             <div id="emails" class="form-text">Agrege un nickname como un alias</div>
                         </div>
