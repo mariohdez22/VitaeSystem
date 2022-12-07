@@ -3,10 +3,10 @@
 
 namespace VitaeSystem.Models.ViewModels
 {
-    public class ReferenciaE
+    public class ReferenciaE // clase para vista de carga de datos
     {
-        public Referencia OBreferencia { get; set; }
+        public Referencia OBreferencia { get; set; } // objeto de la clase referencias
 
-        public List<SelectListItem> listaSolicitante { get; set; }
+        public List<SelectListItem> listaSolicitante { get; set; } // propiedad lista para select de solicitantes
     }
 }

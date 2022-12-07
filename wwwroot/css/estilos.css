@@ -177,14 +177,16 @@ body
     position: absolute;
 }
 
-#btnRegresar {
+#btnRegresar 
+{
     background: linear-gradient(25deg, #FF60AF, #BB60FF);
     color: white;
     border: none;
     border-radius: 20px;
 }
 
-#scroll {
+#scroll 
+{
     overflow-y: scroll;
     height: 72.9vh;
     padding-top: 15px;
@@ -1019,10 +1021,14 @@ body
     margin-top: 25px !important;
 }
 
-/*-----------------------------------------------------------*/
-
-#textboxBuscar 
+#espacioBotonReferencia 
 {
+    margin-left: -4px !important;
+    margin-top: 70px !important;
+}
+
+/*-----------------------------------------------------------*/
+#textboxBuscar {
     z-index: 1;
     border: 0px;
     border-top-right-radius: 20px;
@@ -1078,11 +1084,42 @@ body
     border: 1px solid #D2D2D2;
 }
 
-#espacio-solicitante p
+#espacio-solicitante p 
 {
-    display: flex; 
+    display: flex;
     font-weight: bold;
     color: #3e3e3e;
     margin-top: -1.5px;
+}
+
+#envuelto
+{
+    overflow: hidden;
+    width: 9.5vw;
+    position: relative;
+}
+
+#envuelto::before
+{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 250px;
+    height: 25px;
+    background-color: #00000000;
+    transform: translate(0%,0%);
+    z-index: 2;
+}
+
+#nuevoSelect 
+{
+    outline: none;
+    border: 0px;
+    width: 20vw;
+    background-color: #EAEAEA;
+    transform: translate(0%, -6%);
+    font-weight: bold;
+    color: #3e3e3e;
+    z-index: 1;
 }
 

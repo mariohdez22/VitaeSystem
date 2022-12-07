@@ -3,12 +3,12 @@
 
 namespace VitaeSystem.Models.ViewModels
 {
-    public class InfoSolicitanteE
+    public class InfoSolicitanteE // clase para vista de carga de datos
     {
-        public InfoSolicitante OBinfoSolicitante { get; set; }  
+        public InfoSolicitante OBinfoSolicitante { get; set; } // objeto de la clase solicitantes
 
-        public List<SelectListItem> listaTrabajador { get; set; } 
+        public List<SelectListItem> listaTrabajador { get; set; } // propiedad lista para select de trabajadores
 
-        public List<SelectListItem> listaEstado { get; set; } 
+        public List<SelectListItem> listaEstado { get; set; } // propiedad lista para select de estado solicitantes
     }
 }

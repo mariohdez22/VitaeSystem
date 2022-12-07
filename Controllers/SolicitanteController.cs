@@ -26,18 +26,15 @@ namespace VitaeSystem.Controllers
 
             if (!String.IsNullOrEmpty(buscar))
             {
-                solicitante = _solicitantes.InfoSolicitantes.Where(
-
-                               b => b.OBtrabajador.Nombre!.Contains(buscar) ||
-                                    b.Nombres!.Contains(buscar) ||
-                                    b.Apellidos!.Contains(buscar) ||
-                                    b.Celular!.Contains(buscar) ||
-                                    b.Email!.Contains(buscar) ||
-                                    b.DeptoVivienda!.Contains(buscar) ||
-                                    b.Objetivo!.Contains(buscar) ||
-                                    b.OBestadoSolicitante.EstadoSolicitante1!.Contains(buscar)
-
-                               ).ToList();
+                solicitante = _solicitantes.InfoSolicitantes.Where(x => x.IdestadoSolicitante == 1)
+                              .Where( b => b.OBtrabajador.Nickname!.Contains(buscar) ||
+                                           b.Nombres!.Contains(buscar) ||
+                                           b.Apellidos!.Contains(buscar) ||
+                                           b.Celular!.Contains(buscar) ||
+                                           b.Email!.Contains(buscar) ||
+                                           b.DeptoVivienda!.Contains(buscar) ||
+                                           b.Objetivo!.Contains(buscar)
+                                           ).ToList();
             }
 
             return View(solicitante);
@@ -104,18 +101,15 @@ namespace VitaeSystem.Controllers
 
             if (!String.IsNullOrEmpty(buscar))
             {
-                solicitante = _solicitantes.InfoSolicitantes.Where(
-
-                               b => b.OBtrabajador.Nombre!.Contains(buscar) ||
-                                    b.Nombres!.Contains(buscar) ||
-                                    b.Apellidos!.Contains(buscar) ||
-                                    b.Celular!.Contains(buscar) ||
-                                    b.Email!.Contains(buscar) ||
-                                    b.DeptoVivienda!.Contains(buscar) ||
-                                    b.Objetivo!.Contains(buscar) ||
-                                    b.OBestadoSolicitante.EstadoSolicitante1!.Contains(buscar)
-
-                               ).ToList();
+                solicitante = _solicitantes.InfoSolicitantes.Where(x => x.IdestadoSolicitante == 2)
+                              .Where( b => b.OBtrabajador.Nombre!.Contains(buscar) ||
+                                      b.Nombres!.Contains(buscar) ||
+                                      b.Apellidos!.Contains(buscar) ||
+                                      b.Celular!.Contains(buscar) ||
+                                      b.Email!.Contains(buscar) ||
+                                      b.DeptoVivienda!.Contains(buscar) ||
+                                      b.Objetivo!.Contains(buscar)
+                                      ).ToList();
             }
 
             return View(solicitante);
@@ -183,18 +177,15 @@ namespace VitaeSystem.Controllers
 
             if (!String.IsNullOrEmpty(buscar))
             {
-                solicitante = _solicitantes.InfoSolicitantes.Where(
-
-                               b => b.OBtrabajador.Nombre!.Contains(buscar) ||
-                                    b.Nombres!.Contains(buscar) ||
-                                    b.Apellidos!.Contains(buscar) ||
-                                    b.Celular!.Contains(buscar) ||
-                                    b.Email!.Contains(buscar) ||
-                                    b.DeptoVivienda!.Contains(buscar) ||
-                                    b.Objetivo!.Contains(buscar) ||
-                                    b.OBestadoSolicitante.EstadoSolicitante1!.Contains(buscar)
-
-                               ).ToList();
+                solicitante = _solicitantes.InfoSolicitantes.Where(x => x.IdestadoSolicitante == 3)
+                              .Where( b => b.OBtrabajador.Nombre!.Contains(buscar) ||
+                                      b.Nombres!.Contains(buscar) ||
+                                      b.Apellidos!.Contains(buscar) ||
+                                      b.Celular!.Contains(buscar) ||
+                                      b.Email!.Contains(buscar) ||
+                                      b.DeptoVivienda!.Contains(buscar) ||
+                                      b.Objetivo!.Contains(buscar)
+                                      ).ToList();
             }
 
             return View(solicitante);
