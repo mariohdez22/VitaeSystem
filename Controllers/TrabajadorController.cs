@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using VitaeSystem.Models.ViewModels;
 using VitaeSystem.Models;
 using System.Diagnostics;
+using Rotativa.AspNetCore;
 #pragma warning disable 
 
 namespace VitaeSystem.Controllers
@@ -113,6 +114,28 @@ namespace VitaeSystem.Controllers
 
             return View(objetoU);
         }
+        // metodos para la creacion de reportes
 
-    }
+        public IActionResult ReporteCurriculum()
+        {
+            List<ModeloTrabajadorcs> modelo = _trabajadores.Trabajadors.Select
+            (t => new ModeloTrabajadorcs()
+            {
+                Nombre = t.Nombre,
+                Telefono = t.Telefono,
+                Email = t.Email,
+                Nickname = t.Nickname
+            }).ToList();
+
+            return new ViewAsPdf("ReporteCurriculum", modelo)
+             {
+                 FileName = $"Trabajadores.pdf",
+                 PageOrientation = Rotativa.AspNetCore.Options.Orientation.Portrait,
+                 PageSize = Rotativa.AspNetCore.Options.Size.A4
+             };
+        }
+  
+     }
+    
+    
 }
