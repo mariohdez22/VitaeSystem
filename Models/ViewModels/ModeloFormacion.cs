@@ -4,6 +4,8 @@ namespace VitaeSystem.Models.ViewModels
 {
     public class ModeloFormacion
     {
+        public string Idformacion { get; set; } // propiedad
+
         public string Titulo { get; set; } // propiedad
 
         public string InstitucionProcedencia { get; set; } // propiedad
