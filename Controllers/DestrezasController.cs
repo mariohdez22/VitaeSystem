@@ -81,5 +81,23 @@ namespace VitaeSystem.Controllers
                 
         }
 
+        [HttpPost]
+        public IActionResult Destrezas_Detalle_Auto(DestrezasE objetoU)
+        {
+            if (objetoU.OBdestreza.Iddestrezas == 0)
+            {
+                _destrezas.Destrezas.Add(objetoU.OBdestreza);
+            }
+            else
+            {
+                _destrezas.Destrezas.Update(objetoU.OBdestreza);
+            }
+
+            _destrezas.SaveChanges();
+
+            return RedirectToAction("Referencias_Detalle_Auto", "Referencias");
+
+        }
+
     }
 }

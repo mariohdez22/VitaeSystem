@@ -78,5 +78,25 @@ namespace VitaeSystem.Controllers
             }
 
         }
+
+        [HttpPost]
+        public IActionResult Referencias_Detalle_Auto(ReferenciaE objetoU)
+        {
+            if (objetoU.OBreferencia.Idreferencias == 0)
+            {
+                _referencias.Referencias.Add(objetoU.OBreferencia);
+            }
+            else
+            {
+                _referencias.Referencias.Update(objetoU.OBreferencia);
+            }
+
+            _referencias.SaveChanges();
+
+            return RedirectToAction("Index", "Solicitante");
+        }
+
     }
+
 }
+

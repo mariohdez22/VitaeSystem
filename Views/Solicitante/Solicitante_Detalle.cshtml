@@ -21,7 +21,7 @@
 
         <div class="card-body">
 
-            <form asp-action="Solicitante_Detalle" asp-controller="Solicitante" method="post">
+            <form asp-action="Solicitante_Detalle" asp-controller="Solicitante" asp-route-idtrabajador="0" method="post">
 
                 <input type="hidden" class="form-control" asp-for="OBinfoSolicitante.Idsolicitante" id="Id" aria-describedby="IDs">  
 
@@ -46,7 +46,7 @@
                             <label for="" class="form-label">Nombres</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
-                                <input id="textbox" minlength="15" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBinfoSolicitante.Nombres">
+                                <input id="textbox" minlength="10" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBinfoSolicitante.Nombres">
                             </div>
                             <div id="nombres" class="form-text">Agrege el nombre del solicitante a guardar</div>
                         </div>
@@ -69,7 +69,7 @@
                             <label for="" class="form-label">Apellidos</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-plus-circle-fill"></i></span>
-                                <input id="textbox" type="text" minlength="15" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBinfoSolicitante.Apellidos">
+                                <input id="textbox" type="text" minlength="10" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBinfoSolicitante.Apellidos">
                             </div>
                                 <div id="nombres" class="form-text">Agrege el Apellido del solicitante a guardar</div>
                         </div>
@@ -90,7 +90,7 @@
                             <label for="" class="form-label">Celular</label>
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-phone-fill"></i></span>
-                                <input id="textbox" type="text"  maxlength="8" min placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBinfoSolicitante.Celular">
+                                <input id="textbox" type="text"  maxlength="8" placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBinfoSolicitante.Celular">
                             </div>
                             <div id="celulares" class="form-text">Agrege un celular para futuros contactos / llamadas</div>
                         </div>

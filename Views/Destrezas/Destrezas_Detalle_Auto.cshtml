@@ -1,0 +1,114 @@
+﻿@model VitaeSystem.Models.ViewModels.DestrezasE
+@{
+    ViewData["Title"] = "Destrezas_Detalle_Auto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="Atrabajador" class="card">
+
+        @if (Model.OBdestreza.Iddestrezas == 0)
+        {
+            <div id="cartaheader" class="card-header">
+                Agregar Destrezas 
+            </div>
+        }
+        else
+        {
+            <div id="cartaheader" class="card-header">
+                Editar Destrezas <div id="espacio-solicitante"><div id="xd"><div id="envuelto"><select id="nuevoSelect" asp-for="OBdestreza.Idsolicitante" asp-items="@Model.listaSolicitante"></select></div></div></div>  
+            </div>
+        }
+
+        <div class="card-body">
+
+            <form asp-action="Destrezas_Detalle_Auto" asp-controller="Destrezas" asp-route-idsolicitante="0" method="post">
+
+                <input type="hidden" class="form-control" asp-for="OBdestreza.Iddestrezas" id="Id" aria-describedby="IDs">  
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Solicitante</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-video"></i></span>
+                                <select id="textbox" class="form-select" required asp-for="OBdestreza.Idsolicitante" asp-items="@Model.listaSolicitante">
+                                    <option value="selected disable">Seleccionar Solicitante...</option>
+                                </select>
+                            </div>
+                            <div id="" class="form-text">Nombre del solicitante (No modificable)</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Habilidades</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-bookmark-star-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required minlength="30" asp-for="OBdestreza.Habilidades">
+                            </div>
+                            <div id="" class="form-text">Agregue las habilidades del solicitante</div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Competencias</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-clipboard2-data-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required minlength="30" asp-for="OBdestreza.Competencias">
+                            </div>
+                            <div id="" class="form-text">Agrege las competencias del solicitante</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Dominio</label>
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-pentagon-fill"></i></span>
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required minlength="15" asp-for="OBdestreza.Dominio">
+                            </div>
+                            <div id="" class="form-text">Agrege el dominio del solicitante</div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div id="fotiA" class="card bg-warning text-dark bg-opacity-25">
+                            <img src="http://observatorio.tec.mx/wp-content/uploads/2022/05/bigstock-Skill-Development-Vector-Conce-294527137.jpeg" class="card-img-top" alt="...">
+                            <div id="fotiB" class="card-body">
+                                <h5 class="card-title">Administrar Destrezas</h5>
+                                <p class="card-text">Apartado para administrar las Destrezas del los solicitantes</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                @if (Model.OBdestreza.Iddestrezas == 0)
+                {
+
+                    <button id="boton1" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Siguiente</button>
+
+                    <a id="boton2" asp-action="Index" asp-controller="Solicitante" asp-route-idsolicitante="@Model.OBdestreza.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
+
+                }
+                else
+                {
+
+                    <button id="botonA" type="submit" class="btn btn-warning" style="color: white;"><i class="bi bi-plus-circle"></i> Editar</button>
+
+                    <a id="boton2" asp-action="Index" asp-controller="Destrezas" asp-route-idsolicitante="@Model.OBdestreza.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
+
+                }
+
+                    
+
+            </form>
+
+        </div>
+
+    </div>
+

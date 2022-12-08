@@ -80,6 +80,23 @@ namespace VitaeSystem.Controllers
                 
         }
 
+        [HttpPost]
+        public IActionResult Formacion_DetalleA(FormacionProfecionalE objetoU)
+        {
+            if (objetoU.OBformacionProfecional.Idformacion == 0)
+            {
+                _formaciones.FormacionProfecionals.Add(objetoU.OBformacionProfecional);
+            }
+            else
+            {
+                _formaciones.FormacionProfecionals.Update(objetoU.OBformacionProfecional);
+            }
+
+            _formaciones.SaveChanges();
+
+            return RedirectToAction("Destrezas_Detalle_Auto", "Destrezas");
+        }
+
         [HttpGet]
         public IActionResult Eliminar(int Idformacion)
         {

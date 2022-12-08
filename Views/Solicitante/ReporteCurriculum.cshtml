@@ -14,134 +14,134 @@
 <body>
 
     <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">
-              <section class="apartado1">
-                <div class="imagen">
-                    <img src="@Model.Foto" width="200" height="200" alt="">                  
-                </div>
-                <div class="solicitante1">
-                    <h1>@Model.Nombres</h1>
-                    <h1 class="apellido">@Model.Apellidos</h1>
-                </div>
-                <div class="solicitante2">
-                    <h3><span class="sombreado">Celular:</span> @Model.Celular</h3>
-                    <h3 class="email"><span class="sombreado">Email:</span> @Model.Email</h3>
-                    <h3 class="email"><span class="sombreado">Depto/Vivienda:</span> @Model.DeptoVivienda</h3>
-                </div>
-                <div class="solicitante3">
-                    <h3><span class="sombreado">Objetivo:</span> @Model.Objetivo</h3>
-                </div>
-                <div class="solicitante4">
-                    <h1>Destrezas</h1>
-                </div>
-                <div class="solicitante5">
-                  <h3><span class="sombreado">Habilidades:</span></h3>
-                  <ul>
-                    @foreach (var item in Model.destrezas)
-                    {
-                      <li>@item.Habilidades</li>    
-                    }
-                  </ul>
-                </div>
-                 <div class="solicitante5">
-                  <h3><span class="sombreado">Competencias:</span></h3>
-                  <ul>
-                    @foreach (var item in Model.destrezas)
-                    {
-                      <li>@item.Competencias</li>    
-                    }
-                  </ul>
-                </div>
-                <div class="solicitante6">
-                  <h3><span class="sombreado">Dominios:</span></h3>
-                  <ul>
-                    @foreach (var item in Model.destrezas)
-                    {
-                      <li>@item.Dominio</li>    
-                    }
-                  </ul>
-                </div>
-              </section>
-          </th>
-          <th scope="col">
-              <section class="apartado2">
-                 <div class="tituloprincipal">
-                    <h1>CURRICULUM VITAE</h1>    
-                 </div>
-                 <div class="formacion1">
-                    <h1>FORMACION PROFESIONAL</h1>
-                 </div>
-                 <div class="formacion2">
-                    <h3><span class="sombreado2">Titulos:</span></h3>
-                    <ul>
-                        @foreach (var item in Model.formaciones)
-                        {
-                          <li>@item.Titulo</li>    
-                        }
-                    </ul>
-                 </div>
-                 <div class="formacion2">
-                    <h3><span class="sombreado2">Instituciones de Estudio:</span></h3>
-                    <ul>
-                       @foreach (var item in Model.formaciones)
-                       {
-                         <li>@item.InstitucionProcedencia | <span class="fechasombreado">@item.FechaFormacion</span></li>    
-                       }
-                    </ul>                
-                 </div>
-                 <div class="formacion2">
-                    <h3><span class="sombreado2">Cargo - Ocupacion:</span></h3>
-                    <ul>
-                       @foreach (var item in Model.formaciones)
-                       {
-                         if(item.Idformacion == "1")
-                         {
-                            <li>@item.CargoOcupacion | <span class="fechasombreado">Anterior</span></li>     
-                         }else
-                         {
-                            <li>@item.CargoOcupacion | <span class="fechasombreado">Posterior</span></li> 
-                         }
-                       }
-                    </ul>
-                 </div>
-                 <div class="formacion2">
-                    <h3><span class="sombreado2">Instituciones de Trabajo:</span></h3>
-                    <ul>
-                       @foreach (var item in Model.formaciones)
-                       {
-                         <li>@item.InstitucionTrabajo | <span class="fechasombreado">@item.FechaTrabajo</span></li>    
-                       }
-                    </ul>                
-                 </div>
+        <thead>
+            <tr>
+                <th scope="col">
+                    <section class="apartado1">
+                        <div class="imagen">
+                            <img src="@Model.Foto" width="200" height="200" alt="">                  
+                        </div>
+                        <div class="solicitante1">
+                            <h1>@Model.Nombres</h1>
+                            <h1 class="apellido">@Model.Apellidos</h1>
+                        </div>
+                        <div class="solicitante2">
+                            <h3><span class="sombreado">Celular:</span> @Model.Celular</h3>
+                            <h3 class="email"><span class="sombreado">Email:</span> @Model.Email</h3>
+                            <h3 class="email"><span class="sombreado">Depto/Vivienda:</span> @Model.DeptoVivienda</h3>
+                        </div>
+                        <div class="solicitante3">
+                            <h3><span class="sombreado">Objetivo:</span> @Model.Objetivo</h3>
+                        </div>
+                        <div class="solicitante4">
+                            <h1>Destrezas</h1>
+                        </div>
+                        <div class="solicitante5">
+                            <h3><span class="sombreado">Habilidades:</span></h3>
+                            <ul>
+                                @foreach (var item in Model.destrezas)
+                                {
+                                    <li>@item.Habilidades</li>    
+                                }
+                            </ul>
+                        </div>
+                         <div class="solicitante5">
+                            <h3><span class="sombreado">Competencias:</span></h3>
+                            <ul>
+                                @foreach (var item in Model.destrezas)
+                                {
+                                    <li>@item.Competencias</li>    
+                                }
+                            </ul>
+                        </div>
+                        <div class="solicitante6">
+                            <h3><span class="sombreado">Dominios:</span></h3>
+                            <ul>
+                                @foreach (var item in Model.destrezas)
+                                {
+                                    <li>@item.Dominio</li>    
+                                }
+                            </ul>
+                        </div>
+                    </section>
+                </th>
+                <th scope="col">
+                    <section class="apartado2">
+                        <div class="tituloprincipal">
+                            <h1>CURRICULUM VITAE</h1>    
+                        </div>
+                        <div class="formacion1">
+                            <h1>FORMACION PROFESIONAL</h1>
+                        </div>
+                        <div class="formacion2">
+                            <h3><span class="sombreado2">Titulos:</span></h3>
+                            <ul>
+                                @foreach (var item in Model.formaciones)
+                                {
+                                    <li>@item.Titulo</li>    
+                                }
+                            </ul>
+                        </div>
+                        <div class="formacion2">
+                            <h3><span class="sombreado2">Instituciones de Estudio:</span></h3>
+                            <ul>
+                                @foreach (var item in Model.formaciones)
+                                {
+                                    <li>@item.InstitucionProcedencia | <span class="fechasombreado">@item.FechaFormacion</span></li>    
+                                }
+                            </ul>                
+                        </div>
+                        <div class="formacion2">
+                            <h3><span class="sombreado2">Cargo - Ocupacion:</span></h3>
+                            <ul>
+                                @foreach (var item in Model.formaciones)
+                                {
+                                    if(item.Idformacion == "1")
+                                    {
+                                        <li>@item.CargoOcupacion | <span class="fechasombreado">Anterior</span></li>     
+                                    }else
+                                    {
+                                        <li>@item.CargoOcupacion | <span class="fechasombreado">Posterior</span></li> 
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        <div class="formacion2">
+                            <h3><span class="sombreado2">Instituciones de Trabajo:</span></h3>
+                            <ul>
+                                @foreach (var item in Model.formaciones)
+                                {
+                                    <li>@item.InstitucionTrabajo | <span class="fechasombreado">@item.FechaTrabajo</span></li>    
+                                }
+                            </ul>                
+                        </div>
 
-                 <div class="formacion1">
-                    <h1>REFERENCIAS DEL SOLICITANTE</h1>
-                 </div>
-                 <div class="formacion2">
-                    <h3><span class="sombreado2">Referentes Personales:</span></h3>
-                    <ul>
-                       @foreach (var item in Model.referencias)
-                       {
-                         <li>@item.ReferentePersonal | Cell: <span class="fechasombreado">@item.CellRefPersonal</span></li>    
-                       }
-                    </ul>                
-                 </div>
-                 <div class="referencia">
-                    <h3><span class="sombreado2">Referentes Laborales:</span></h3>
-                    <ul>
-                       @foreach (var item in Model.referencias)
-                       {
-                         <li>@item.ReferenteTrabajo | Cell: <span class="fechasombreado">@item.CellRefTrabajo</span></li>    
-                       }
-                    </ul>                
-                 </div>
+                        <div class="formacion1">
+                            <h1>REFERENCIAS DEL SOLICITANTE</h1>
+                        </div>
+                        <div class="formacion2">
+                            <h3><span class="sombreado2">Referentes Personales:</span></h3>
+                            <ul>
+                                @foreach (var item in Model.referencias)
+                                {
+                                    <li>@item.ReferentePersonal | Cell: <span class="fechasombreado">@item.CellRefPersonal</span></li>    
+                                }
+                            </ul>                
+                        </div>
+                        <div class="referencia">
+                            <h3><span class="sombreado2">Referentes Laborales:</span></h3>
+                            <ul>
+                                @foreach (var item in Model.referencias)
+                                {
+                                    <li>@item.ReferenteTrabajo | Cell: <span class="fechasombreado">@item.CellRefTrabajo</span></li>    
+                                }
+                            </ul>                
+                        </div>
 
-              </section>
-          </th>
-        </tr>
-      </thead>
+                    </section>
+                </th>
+            </tr>
+        </thead>
     </table>
 
 </body>

@@ -12,8 +12,13 @@
 
         <div id="parte-boton" class="card-body">
             <div class="row">
-                <div class="col">
-                    <a id="btnTrabajador" asp-action="Trabajador_Detalle" asp-controller="Trabajador" asp-route-idtrabajador="0" class="btn"><i class="bi bi-person-plus-fill"></i> Agregar Trabajadores</a>
+                <div class="col" style="display:flex !important;">
+                    <div id="botonetes">
+                        <div id="dc">
+                            <a id="btnTrabajador" asp-action="Trabajador_Detalle" asp-controller="Trabajador" asp-route-idtrabajador="0" class="btn"><i class="bi bi-person-plus-fill"></i> Agregar Trabajadores</a>
+                            <a style="margin-left: 20px" id="btnRegresar" asp-action="ReporteCurriculumTipo" asp-controller="Trabajador" asp-route-idtipo="0" class="btn"><i class="bi bi-file-earmark-pdf-fill"></i> Generales</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col">
                     <form asp-controller="Trabajador" asp-action="Index">
