@@ -1,5 +1,6 @@
 ﻿@model List<VitaeSystem.Models.InfoSolicitante> 
 @{
+    /*Declaracion de uso para el layout*/
     ViewData["Title"] = "Aceptados";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,13 +10,15 @@
         <div id="cartaheader" class="card-header">
             Solicitantes Aceptados
         </div>
-
+        
         <div id="parte-boton" class="card-body">
             <div class="row">
                 <div class="col">
+                <!--Declaracion y enrutamiento del boton que redireccionamiento del boton-->
                     <form asp-controller="Solicitante" asp-action="Aceptados">
                         <div style="width: 20vw; margin-left: 0vw;">
                             <div class="input-group">
+                            <!-- Configuracion del imput para la busqueda-->
                                 <span id="spansBuscar" class="input-group-text"><i class="bi bi-search"></i></span>
                                 <input id="textboxBuscar" name="buscar" type="text" placeholder="buscar..." class="form-control">
                             </div>
@@ -32,7 +35,7 @@
             <div id="scroll" class="container">
 
                 <div id="cuadro" class="row row-cols-2">                       
-                
+                <!--bucle utilizado para la carga de datos de solicitantes admitidos-->
                 @foreach (var item in Model)
                 {
                     <div id="tarjetas-solicitantes2" class="card">
@@ -40,50 +43,62 @@
 
                             <div id="fila" class="row">
 
+                                <!--declaracion de el campo para foto-->
                                 <div id="colColor" class="col">
                                     <div id="apartado-imagen">
                                         <img src="@item.Foto" width="120" height="100">
                                     </div>
+                                    <!--declaracion del campo para el nombre y apellido-->
                                     <div id="nombre-solicitante">
                                         <ul>
                                             <li><div id="negrita"><i class="bi bi-person-video"></i></div>&nbsp; @item.Nombres</li>
                                             <li><div id="negrita"><i class="bi bi-person-video2"></i></div>&nbsp; @item.Apellidos</li>
                                         </ul>
                                     </div>
+                                    <!--declaracion del capo para correo-->
                                     <div id="parte-correo">
                                         <p><i class="bi bi-envelope-fill"></i>&nbsp; @item.Email</p>
                                     </div>
+                                    <!--declaracion del boton para el regreso del registro a solicitantes-->
                                     <div id="botones-solicitante">
                                         <ul>
                                             <li><a id="devolverSolicitante" asp-action="Solicitante_Aceptado" asp-controller="Solicitante" asp-route-idsolicitante="@item.Idsolicitante" class="btn btn-outline-warning"><i class="bi bi-arrow-up-right-circle-fill"></i> Devolver</a></li>
                                         </ul>
                                     </div>
                                 </div>
-
+                                <!--segunda caja que almacena campos-->
                                 <div id="cajon-solicitante" class="col">
                                     <ul>
+                                        <!--declaracion del campo para celular-->
                                         <li><div id="franja-solicitante"><i class="bi bi-phone-fill"></i>&nbsp;</div></li>
                                         <li><div id="datos-solicitante">@item.Celular</div></li>
                                     </ul>
                                     <ul>
+                                        <!--declaracion del campo para el objetivo-->
                                         <li><div id="franja-solicitante2"><i class="bi bi-check-circle-fill"></i>&nbsp;</div></li>
                                         <li><div id="datos-solicitante2">@item.Objetivo</div></li>
                                     </ul>
                                     <ul>
+                                        <!--declaracion del campo para la direccion-->
                                         <li><div id="franja-solicitante3"><i class="bi bi-houses-fill"></i>&nbsp;</div></li>
                                         <li><div id="datos-solicitante3">@item.DeptoVivienda</div></li>
                                     </ul>
                                     <ul>
+                                        
                                         <li><div id="franja-solicitante4"><i class="bi bi-person-fill-exclamation"></i>&nbsp;</div></li>
                                         <li><div id="datos-solicitante4">Aceptado</div></li>
                                     </ul>
                                     <ul>
+                                        <!--declaracion del campo para el nickname-->
                                         <li><div id="franja-solicitante5"><i class="bi bi-person-fill-gear"></i>&nbsp;</div></li>
                                         <li><div id="datos-solicitante5">@item.OBtrabajador.Nickname</div></li>
                                     </ul>
                                     <ul>
+                                        <!--Declaracion del boton para que redirige a la formacion del solicitante-->
                                         <li><a id="btnFormacion" asp-controller="Formacion" asp-action="Index" asp-route-idsolicitante="@item.Idsolicitante" class="btn btn-outline-warning"><i class="bi bi-bookmark-check-fill"></i></a></li>
+                                        <!--Declaracion del boton que redirige a las destrezas el solicitante-->
                                         <li><a id="btnDestrezas" asp-controller="Destrezas" asp-action="Index" asp-route-idsolicitante="@item.Idsolicitante" class="btn btn-outline-warning"><i class="bi bi-clipboard2-check-fill"></i></a></li>
+                                        <!--Declaracion del boton para redirigir a las referencias del solicitante-->
                                         <li><a id="btnReferencias" asp-controller="Referencias" asp-action="Index" asp-route-idsolicitante="@item.Idsolicitante" class="btn btn-outline-warning"><i class="bi bi-person-vcard-fill"></i></a></li>
                                     </ul>
                                 </div>
