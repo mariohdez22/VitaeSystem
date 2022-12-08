@@ -21,7 +21,7 @@
 
         <div class="card-body">
 
-            <form asp-action="Referencias_Detalle_Auto" asp-controller="Referencias" asp-route-idsolicitante="0" method="post">
+            <form asp-action="ReferenciasA" asp-controller="Referencias" method="post">
 
                 <input type="hidden" class="form-control" asp-for="OBreferencia.Idreferencias" id="Id" aria-describedby="IDs">  
 
@@ -98,17 +98,13 @@
                 @if (Model.OBreferencia.Idreferencias == 0)
                 {
 
-                    <button id="boton1" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Siguiente</button>
-
-                     <a id="boton2" asp-action="Index" asp-controller="Solicitante" asp-route-idsolicitante="@Model.OBreferencia.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
+                    <button id="botonF" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Aceptar</button>
 
                 }
                 else
                 {
 
                     <button id="botonA" type="submit" class="btn btn-warning" style="color: white;"><i class="bi bi-plus-circle"></i> Editar</button>
-
-                    <a id="boton2" asp-action="Index" asp-controller="Referencias" asp-route-idsolicitante="@Model.OBreferencia.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
 
                 }       
 

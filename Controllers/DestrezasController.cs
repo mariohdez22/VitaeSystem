@@ -38,7 +38,8 @@ namespace VitaeSystem.Controllers
             {
 
                 OBdestreza = new Destreza(),
-                listaSolicitante = _destrezas.InfoSolicitantes.Select(solicitante => new SelectListItem()
+                listaSolicitante = _destrezas.InfoSolicitantes.Where(x => x.IdestadoSolicitante == 1)
+                .Select(solicitante => new SelectListItem()
                 {
 
                     Text = solicitante.Nombres,
@@ -81,8 +82,37 @@ namespace VitaeSystem.Controllers
                 
         }
 
+        /*------------------------------------------------------------------------------------------------------*/
+
+        [HttpGet]
+        public IActionResult DestrezasA(int Idestreza)
+        {
+
+            DestrezasE oDestrezaE = new DestrezasE()
+            {
+
+                OBdestreza = new Destreza(),
+                listaSolicitante = _destrezas.InfoSolicitantes.Where(x => x.IdestadoSolicitante == 1)
+                .Select(solicitante => new SelectListItem()
+                {
+
+                    Text = solicitante.Nombres,
+                    Value = solicitante.Idsolicitante.ToString()
+
+                }).ToList()
+
+            };
+
+            if (Idestreza != 0)
+            {
+                oDestrezaE.OBdestreza = _destrezas.Destrezas.Find(Idestreza);
+            }
+
+            return View(oDestrezaE);
+        }
+
         [HttpPost]
-        public IActionResult Destrezas_Detalle_Auto(DestrezasE objetoU)
+        public IActionResult DestrezasA(DestrezasE objetoU)
         {
             if (objetoU.OBdestreza.Iddestrezas == 0)
             {
@@ -95,7 +125,7 @@ namespace VitaeSystem.Controllers
 
             _destrezas.SaveChanges();
 
-            return RedirectToAction("Referencias_Detalle_Auto", "Referencias");
+            return RedirectToAction("ReferenciasA", new RouteValueDictionary(new { Controller = "Referencias", Action = "ReferenciasA", IDreferencias = 0 }));
 
         }
 
