@@ -1,0 +1,321 @@
+﻿
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+/* apartado 1 */
+
+.apartado1 {
+    background-color: #FF6969;
+    width: 350px;
+    height: 1405px;
+    padding-top: 60px !important;
+}
+
+.imagen {
+    border-radius: 200px;
+    border: 10px solid #FF9C9C;
+    overflow: hidden !important;
+    width: 200px;
+    height: 200px;
+    margin-left: 60px;
+    box-shadow: rgba(255, 105, 105, 0.1) 0px 1px 0px, rgba(255, 105, 105, 0.1) 0px 8px 24px, rgba(255, 105, 105, 0.1) 0px 16px 48px;
+}
+
+    .imagen img {
+        border-radius: 200px;
+    }
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.solicitante1 {
+    width: 300px;
+    height: auto;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-bottom: 5px solid white;
+}
+
+    .solicitante1 h1 {
+        font-size: 27px;
+        text-align: left;
+        font-family: Arial;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .solicitante1 .apellido {
+        margin-top: -20px;
+    }
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.solicitante2 {
+    width: 300px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-bottom: 5px solid white;
+    /*background-color: crimson;*/
+}
+
+    .solicitante2 h3 {
+        font-size: 20px;
+        text-align: left;
+        font-family: Arial;
+        color: white;
+    }
+
+    .solicitante2 .email {
+        margin-top: -15px;
+    }
+
+.sombreado {
+    color: #B42929;
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.solicitante3 {
+    width: 300px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-bottom: 5px solid white;
+}
+
+    .solicitante3 h3 {
+        font-size: 20px;
+        text-align: left;
+        font-family: Arial;
+        color: white;
+    }
+
+.solicitante2 .email {
+    margin-top: -15px;
+}
+
+.sombreado {
+    color: #B42929;
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.solicitante4 {
+    width: 300px;
+    height: auto;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-bottom: 5px solid white;
+}
+
+    .solicitante4 h1 {
+        font-size: 27px;
+        text-align: left;
+        font-family: Arial;
+        color: #FFFF91;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.solicitante5 {
+    width: 300px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-bottom: 5px solid white;
+    /*background-color: crimson;*/
+}
+
+    .solicitante5 h3 {
+        font-size: 20px;
+        text-align: left;
+        font-family: Arial;
+    }
+
+.sombreado {
+    color: #B42929;
+}
+
+.solicitante5 ul {
+    margin-top: -10px;
+    margin-left: -17px;
+    margin-bottom: 20px;
+}
+
+    .solicitante5 ul li {
+        text-align: left;
+        color: white;
+        font-size: 16px;
+        font-family: Arial;
+        margin-bottom: 5px;
+    }
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.solicitante6 {
+    width: 300px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    /*background-color: crimson;*/
+}
+
+    .solicitante6 h3 {
+        font-size: 20px;
+        text-align: left;
+        font-family: Arial;
+    }
+
+.sombreado {
+    color: #B42929;
+}
+
+.solicitante6 ul {
+    margin-top: -10px;
+    margin-left: -17px;
+    margin-bottom: 20px;
+}
+
+    .solicitante6 ul li {
+        text-align: left;
+        color: white;
+        font-size: 16px;
+        font-family: Arial;
+        margin-bottom: 5px;
+    }
+
+/*----------------------------------------------------------------------------------------------------*/
+/* apartado 2 */
+
+.apartado2 {
+    background-color: #FFF0F0;
+    width: 650px;
+    height: 1405px;
+    padding-top: 60px !important;
+}
+
+.tituloprincipal {
+    background-color: #323232;
+    width: 650px;
+    height: auto;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+    .tituloprincipal h1 {
+        font-size: 50px;
+        font-family: Arial;
+        padding-bottom: 5px;
+        border-bottom: 5px solid yellow;
+        width: 500px;
+        text-align: left;
+        margin-left: 70px;
+        color: white;
+    }
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.formacion1 {
+    width: 580px;
+    height: 40px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-bottom: 5px solid #A9A9A9;
+}
+
+    .formacion1 h1 {
+        font-size: 27px;
+        text-align: left;
+        font-family: Arial;
+        color: #404040;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.formacion2 {
+    width: 580px;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    border-bottom: 5px solid #CDCDCD;
+}
+
+    .formacion2 h3 {
+        font-size: 25px;
+        text-align: left;
+        font-family: Arial;
+    }
+
+.sombreado2 {
+    color: #F0CB31;
+}
+
+.formacion2 ul {
+    margin-top: -15px;
+    margin-left: -17px;
+    margin-bottom: 20px;
+}
+
+    .formacion2 ul li {
+        text-align: left;
+        color: #404040;
+        font-size: 22px;
+        font-family: Arial;
+        margin-bottom: 5px;
+        font-weight: 300;
+    }
+
+.fechasombreado {
+    color: #CE4543;
+}
+
+/*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+.referencia {
+    width: 580px;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+    .referencia h3 {
+        font-size: 25px;
+        text-align: left;
+        font-family: Arial;
+    }
+
+.sombreado2 {
+    color: #F0CB31;
+}
+
+.referencia ul {
+    margin-top: -15px;
+    margin-left: -17px;
+    margin-bottom: 20px;
+}
+
+    .referencia ul li {
+        text-align: left;
+        color: #404040;
+        font-size: 22px;
+        font-family: Arial;
+        margin-bottom: 5px;
+        font-weight: 300;
+    }

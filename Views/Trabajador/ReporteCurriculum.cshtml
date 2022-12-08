@@ -1,0 +1,46 @@
+﻿@model List<VitaeSystem.Models.ViewModels.ModeloTrabajadorcs>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="~/css/trabajador.css" />
+    <title>Reporte trabajador</title>
+</head>
+<body>
+
+    <table class="table">
+        <thead>
+                <th scope="col">
+                    <section class="apartado2">
+                        <div class="tituloprincipal">
+                            <h1>CURRICULUM VITAE</h1>
+                        </div>
+                        <div class="formacion1">
+                            <h1>FORMACION PROFESIONAL</h1>
+                        </div>
+                        <div class="formacion2">
+                            <h3><span class="sombreado2">usuarios:</span></h3>
+                            <ul>
+                                @foreach (var item in Model)
+                                {
+                                    <li>@item.Nombre</li>
+                                    <li>@item.Telefono</li>
+                                    <li>@item.Email</li>
+                                    <li>@item.Nickname</li>
+                                }
+                           
+
+                    </section>
+                </th>
+            </tr>
+        </thead>
+    </table>
+
+</body>
+</html>
+
