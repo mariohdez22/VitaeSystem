@@ -80,8 +80,34 @@ namespace VitaeSystem.Controllers
                 
         }
 
+        [HttpGet]
+        public IActionResult Formaciones(int Idformacion)
+        {
+
+            FormacionProfecionalE oFormacionE = new FormacionProfecionalE()
+            {
+
+                OBformacionProfecional = new FormacionProfecional(),
+                listaSolicitante = _formaciones.InfoSolicitantes.Select(solicitante => new SelectListItem()
+                {
+
+                    Text = solicitante.Nombres,
+                    Value = solicitante.Idsolicitante.ToString()
+
+                }).ToList(),
+
+            };
+
+            if (Idformacion != 0)
+            {
+                oFormacionE.OBformacionProfecional = _formaciones.FormacionProfecionals.Find(Idformacion);
+            }
+
+            return View(oFormacionE);
+        }
+
         [HttpPost]
-        public IActionResult Formacion_DetalleA(FormacionProfecionalE objetoU)
+        public IActionResult Formaciones(FormacionProfecionalE objetoU, int Idsolicitante)
         {
             if (objetoU.OBformacionProfecional.Idformacion == 0)
             {
@@ -94,7 +120,14 @@ namespace VitaeSystem.Controllers
 
             _formaciones.SaveChanges();
 
-            return RedirectToAction("Destrezas_Detalle_Auto", "Destrezas");
+            if (objetoU.OBformacionProfecional.Idformacion == 0)
+            {
+                return RedirectToAction("Index", "Solicitante");
+            }
+            else
+            {
+                return RedirectToAction("Index", new RouteValueDictionary(new { Controller = "Formacion", Action = "Index", IDsolicitante = Idsolicitante }));
+            }
         }
 
         [HttpGet]

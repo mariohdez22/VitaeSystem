@@ -1,6 +1,6 @@
 ﻿@model VitaeSystem.Models.ViewModels.FormacionProfecionalE
 @{
-    ViewData["Title"] = "Formacion_DetalleA";
+    ViewData["Title"] = "Formaciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -21,7 +21,7 @@
 
         <div class="card-body">
 
-            <form asp-action="Formacion_Detalle_Auto" asp-controller="Formacion" asp-route-idtrabajador="0" method="post">
+            <form asp-action="Formaciones" asp-controller="Formacion" asp-route-idtrabajador="0" method="post">
 
                 <input type="hidden" class="form-control" asp-for="OBformacionProfecional.Idformacion" id="Id" aria-describedby="IDs">  
 

@@ -88,7 +88,7 @@ namespace VitaeSystem.Controllers
 
             _solicitantes.SaveChanges();
 
-            return RedirectToAction("Formacion_DetalleA", "Formacion");
+            return RedirectToAction("Formaciones", "Formacion");
         }
 
         /*------------------------------------------------------------------------------------------------------*/
