@@ -11,9 +11,10 @@
             <div id="cartaheader" class="card-header">
                 Agregar Destrezas 
             </div>
-        } <!--pero si existen nos mandara al campo de editarlas  -->
+        } 
         else
         {
+            <!--pero si existen nos mandara al campo de editarlas  -->
             <div id="cartaheader" class="card-header">
                 Editar Destrezas <div id="espacio-solicitante"><div id="xd"><div id="envuelto"><select id="nuevoSelect" asp-for="OBdestreza.Idsolicitante" asp-items="@Model.listaSolicitante"></select></div></div></div>  
             </div>
@@ -45,7 +46,7 @@
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-bookmark-star-fill"></i></span> <!--icono de las habilidades -->
                                 <!-- validaciones a tomar en cuenta  -->
-                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required minlength="30" asp-for="OBdestreza.Habilidades">
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required minlength="30" asp-for="OBdestreza.Habilidades">
                             </div>
                             <div id="" class="form-text">Agregue las habilidades del solicitante</div> <!-- descripcion sobre el apartado de habilidades --> 
                         </div>
@@ -59,7 +60,7 @@
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-clipboard2-data-fill"></i></span> <!--icono de las competencias -->
                                 <!-- validaciones a tomar en cuenta  -->
-                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required minlength="30" asp-for="OBdestreza.Competencias">
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required minlength="30" asp-for="OBdestreza.Competencias">
                             </div>
                             <div id="" class="form-text">Agrege las competencias del solicitante</div> <!-- descripcion sobre el apartado de competencias --> 
                         </div>

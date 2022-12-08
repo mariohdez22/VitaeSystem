@@ -12,9 +12,9 @@
                 Agregar Referencias
             </div>
         }
-        <!--pero si existen nos mandara al campo de editarlas  -->
         else 
-        {
+        {   
+            <!--pero si existen nos mandara al campo de editarlas  -->
             <div id="cartaheader" class="card-header">
                 Editar Referencias <div id="espacio-solicitante"><div id="xd"><div id="envuelto"><select id="nuevoSelect" asp-for="OBreferencia.Idsolicitante" asp-items="@Model.listaSolicitante"></select></div></div></div>
             </div>

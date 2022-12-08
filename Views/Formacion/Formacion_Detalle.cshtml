@@ -12,14 +12,14 @@
                 Aregar Formacion Profesional
             </div>
         }
-        <!--pero si existen nos mandara al campo de editarlas  -->
-        else
+        else 
         {
+            <!--pero si existen nos mandara al campo de editarlas  -->
             <div id="cartaheader" class="card-header">
                 Editar Formacion Profesional <div id="espacio-solicitante"><div id="xd"><div id="envuelto"><select id="nuevoSelect" asp-for="OBformacionProfecional.Idsolicitante" asp-items="@Model.listaSolicitante"></select></div></div></div>  
             </div>
         }
-
+        
         <div class="card-body">
             <!-- permite mandar toda la informacion contenida dentro de los input al controlador que se le especifica -->
             <form asp-action="Formacion_Detalle" asp-controller="Formacion" asp-route-idsolicitante="@Model.OBformacionProfecional.Idsolicitante" method="post">
