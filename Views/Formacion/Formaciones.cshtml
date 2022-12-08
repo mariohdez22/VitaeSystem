@@ -126,17 +126,13 @@
                 @if (Model.OBformacionProfecional.Idformacion == 0)
                 {
 
-                    <button id="boton1" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Siguiente</button>
-
-                    <a id="boton2" asp-action="Index" asp-controller="Solicitante" asp-route-idsolicitante="@Model.OBformacionProfecional.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
+                    <button id="botonF" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Siguiente</button>
 
                 }
                 else
                 {
 
                     <button id="botonA" type="submit" class="btn btn-warning" style="color: white;"><i class="bi bi-plus-circle"></i> Editar</button>
-
-                    <a id="boton2" asp-action="Index" asp-controller="Formacion" asp-route-idsolicitante="@Model.OBformacionProfecional.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
 
                 }
 

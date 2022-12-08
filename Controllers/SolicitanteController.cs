@@ -88,7 +88,59 @@ namespace VitaeSystem.Controllers
 
             _solicitantes.SaveChanges();
 
-            return RedirectToAction("Formaciones", "Formacion");
+            return RedirectToAction("Index", "Solicitante");
+        }
+
+        //--------------------------------------------------------------------------------------------------------
+
+        [HttpGet]
+        public IActionResult SolicitanteA(int Idsolicitante)
+        {
+
+            InfoSolicitanteE oSolicitanteE = new InfoSolicitanteE()
+            {
+
+                OBinfoSolicitante = new InfoSolicitante(),
+                listaTrabajador = _solicitantes.Trabajadors.Select(trabajador => new SelectListItem()
+                {
+
+                    Text = trabajador.Nickname,
+                    Value = trabajador.Idtrabajador.ToString()
+
+                }).ToList(),
+                listaEstado = _solicitantes.EstadoSolicitantes.Select(estado => new SelectListItem()
+                {
+
+                    Text = estado.EstadoSolicitante1,
+                    Value = estado.IdestadoSolicitante.ToString()
+
+                }).ToList(),
+
+            };
+
+            if (Idsolicitante != 0)
+            {
+                oSolicitanteE.OBinfoSolicitante = _solicitantes.InfoSolicitantes.Find(Idsolicitante);
+            }
+
+            return View(oSolicitanteE);
+        }
+
+        [HttpPost]
+        public IActionResult SolicitanteA(InfoSolicitanteE objetoU)
+        {
+            if (objetoU.OBinfoSolicitante.Idsolicitante == 0)
+            {
+                _solicitantes.InfoSolicitantes.Add(objetoU.OBinfoSolicitante);
+            }
+            else
+            {
+                _solicitantes.InfoSolicitantes.Update(objetoU.OBinfoSolicitante);
+            }
+
+            _solicitantes.SaveChanges();
+
+            return RedirectToAction("Formaciones", new RouteValueDictionary(new { Controller = "Formacion", Action = "Formaciones", IDformacion = 0 }));
         }
 
         /*------------------------------------------------------------------------------------------------------*/

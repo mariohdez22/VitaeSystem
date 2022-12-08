@@ -37,7 +37,8 @@ namespace VitaeSystem.Controllers
             {
 
                 OBformacionProfecional = new FormacionProfecional(),
-                listaSolicitante = _formaciones.InfoSolicitantes.Select(solicitante => new SelectListItem()
+                listaSolicitante = _formaciones.InfoSolicitantes.Where(x => x.IdestadoSolicitante == 1)
+                .Select(solicitante => new SelectListItem()
                 {
 
                     Text = solicitante.Nombres,
@@ -80,6 +81,8 @@ namespace VitaeSystem.Controllers
                 
         }
 
+        /*------------------------------------------------------------------------------------------------------*/
+
         [HttpGet]
         public IActionResult Formaciones(int Idformacion)
         {
@@ -88,7 +91,8 @@ namespace VitaeSystem.Controllers
             {
 
                 OBformacionProfecional = new FormacionProfecional(),
-                listaSolicitante = _formaciones.InfoSolicitantes.Select(solicitante => new SelectListItem()
+                listaSolicitante = _formaciones.InfoSolicitantes.Where(x => x.IdestadoSolicitante == 1)
+                .Select(solicitante => new SelectListItem()
                 {
 
                     Text = solicitante.Nombres,
@@ -107,7 +111,7 @@ namespace VitaeSystem.Controllers
         }
 
         [HttpPost]
-        public IActionResult Formaciones(FormacionProfecionalE objetoU, int Idsolicitante)
+        public IActionResult Formaciones(FormacionProfecionalE objetoU)
         {
             if (objetoU.OBformacionProfecional.Idformacion == 0)
             {
@@ -120,35 +124,7 @@ namespace VitaeSystem.Controllers
 
             _formaciones.SaveChanges();
 
-            if (objetoU.OBformacionProfecional.Idformacion == 0)
-            {
-                return RedirectToAction("Index", "Solicitante");
-            }
-            else
-            {
-                return RedirectToAction("Index", new RouteValueDictionary(new { Controller = "Formacion", Action = "Index", IDsolicitante = Idsolicitante }));
-            }
-        }
-
-        [HttpGet]
-        public IActionResult Eliminar(int Idformacion)
-        {
-            FormacionProfecional obFormacion = _formaciones.FormacionProfecionals.Include(x => x.OBsolicitante)
-                                                                                 .Where(x => x.Idformacion == Idformacion)
-                                                                                 .FirstOrDefault();
-            return View(obFormacion);
-        }
-
-        [HttpPost]
-        public IActionResult Eliminar(FormacionProfecional objetoU)
-        {
-
-            if (objetoU.Idformacion == 0)
-                _formaciones.FormacionProfecionals.Remove(objetoU);
-
-            _formaciones.SaveChanges();
-
-            return View(objetoU);
+            return RedirectToAction("DestrezasA", new RouteValueDictionary(new { Controller = "Destrezas", Action = "DestrezasA", IDdestreza = 0 }));
         }
 
     }

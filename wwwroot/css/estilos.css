@@ -352,6 +352,19 @@ body
     border: none;
 }
 
+#botonF 
+{
+    margin-top: 42px;
+    margin-left: 10px;
+    border-radius: 0px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    background: linear-gradient(40deg, #73FF2C, #2CFF86);
+    border: none;
+}
+
 #botonA 
 {
     margin-top: 42px;

@@ -36,7 +36,8 @@ namespace VitaeSystem.Controllers
             {
 
                 OBreferencia = new Referencia(),
-                listaSolicitante = _referencias.InfoSolicitantes.Select(solicitante => new SelectListItem()
+                listaSolicitante = _referencias.InfoSolicitantes.Where(x => x.IdestadoSolicitante == 1)
+                .Select(solicitante => new SelectListItem()
                 {
 
                     Text = solicitante.Nombres,
@@ -79,8 +80,37 @@ namespace VitaeSystem.Controllers
 
         }
 
+        /*------------------------------------------------------------------------------------------------------*/
+
+        [HttpGet]
+        public IActionResult ReferenciasA(int Idreferencia)
+        {
+
+            ReferenciaE oReferenciaE = new ReferenciaE()
+            {
+
+                OBreferencia = new Referencia(),
+                listaSolicitante = _referencias.InfoSolicitantes.Where(x => x.IdestadoSolicitante == 1)
+                .Select(solicitante => new SelectListItem()
+                {
+
+                    Text = solicitante.Nombres,
+                    Value = solicitante.Idsolicitante.ToString()
+
+                }).ToList(),
+
+            };
+
+            if (Idreferencia != 0)
+            {
+                oReferenciaE.OBreferencia = _referencias.Referencias.Find(Idreferencia);
+            }
+
+            return View(oReferenciaE);
+        }
+
         [HttpPost]
-        public IActionResult Referencias_Detalle_Auto(ReferenciaE objetoU)
+        public IActionResult ReferenciasA(ReferenciaE objetoU)
         {
             if (objetoU.OBreferencia.Idreferencias == 0)
             {

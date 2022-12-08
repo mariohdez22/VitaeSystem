@@ -3,68 +3,72 @@
     ViewData["Title"] = "Formacion_Detalle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<!-- metodo para identicar si se realizara una insersion o una modificacion a un registro  -->
     <div id="Atrabajador" class="card">
-
+        <!-- si no hay formaciones  nos mandara al campo de agregar -->
         @if (Model.OBformacionProfecional.Idformacion == 0)
         {
             <div id="cartaheader" class="card-header">
                 Aregar Formacion Profesional
             </div>
         }
-        else
+        else 
         {
+            <!--pero si existen nos mandara al campo de editarlas  -->
             <div id="cartaheader" class="card-header">
                 Editar Formacion Profesional <div id="espacio-solicitante"><div id="xd"><div id="envuelto"><select id="nuevoSelect" asp-for="OBformacionProfecional.Idsolicitante" asp-items="@Model.listaSolicitante"></select></div></div></div>  
             </div>
         }
-
+        
         <div class="card-body">
-
+            <!-- permite mandar toda la informacion contenida dentro de los input al controlador que se le especifica -->
             <form asp-action="Formacion_Detalle" asp-controller="Formacion" asp-route-idsolicitante="@Model.OBformacionProfecional.Idsolicitante" method="post">
 
                 <input type="hidden" class="form-control" asp-for="OBformacionProfecional.Idformacion" id="Id" aria-describedby="IDs">  
 
-                <div class="row">
+                <div class="row"> <!-- permite seccionar en columnas y filas la informacion -->
 
-                    <div class="col">
+                    <div class="col"> <!-- primero columna de informacion -->
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Solicitante</label>
+                            <label for="" class="form-label">Solicitante</label> <!-- apartado para solicitante -->
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-person-video"></i></span>
                                 <select id="textbox" class="form-select" required asp-for="OBformacionProfecional.Idsolicitante" asp-items="@Model.listaSolicitante">
                                     <option value="selected disable">Seleccionar Solicitante...</option>
                                 </select>
                             </div>
-                            <div id="" class="form-text">Nombre del solicitante (No modificable)</div>
+                            <div id="" class="form-text">Nombre del solicitante (No modificable)</div> <!-- descripcion sobre el apartado solicitante --> 
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Titulo</label>
+                            <label for="" class="form-label">Titulo</label> <!--apartado para agregar el referente personal  -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-bookmark-check-fill"></i></span>
+                                <span id="spans" class="input-group-text"><i class="bi bi-bookmark-check-fill"></i></span> <!--icono de titulo -->
+                                <!-- validaciones a tomar en cuenta  -->
                                 <input id="textbox" type="text" minlength="20" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBformacionProfecional.Titulo">
                             </div>
-                            <div id="" class="form-text">Agrege el titulo del solicitante</div>
+                            <div id="" class="form-text">Agrege el titulo del solicitante</div> <!-- descripcion sobre el apartado de titulo -->
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Institucion Procedencia</label>
+                            <label for="" class="form-label">Institucion Procedencia</label> <!--apartado para agregar el referente personal  -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-building-fill"></i></span>
+                                <span id="spans" class="input-group-text"><i class="bi bi-building-fill"></i></span> <!--icono de procedencia -->
+                                <!-- validaciones a tomar en cuenta  -->
                                 <input id="textbox" type="text" minlength="20" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBformacionProfecional.InstitucionProcedencia">
                             </div>
-                            <div id="" class="form-text">Agrege la institucion del solicitante</div>
+                            <div id="" class="form-text">Agrege la institucion del solicitante</div> <!-- descripcion sobre el apartado de institucion del solicitante -->
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Fecha de Formacion</label>
+                            <label for="" class="form-label">Fecha de Formacion</label> <!--apartado para agregar la fecha de formacion -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-calendar-check-fill"></i></span>
+                                <span id="spans" class="input-group-text"><i class="bi bi-calendar-check-fill"></i></span> <!--icono de fecha de formacion -->
+                                <!-- validaciones a tomar en cuenta  -->
                                 <input id="textbox" type="text" minlength="11" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBformacionProfecional.FechaFormacion">
                             </div>
-                            <div id="" class="form-text">Agrege fecha de formacion</div>
+                        <div id="" class="form-text">Agrege fecha de formacion</div> <!-- descripcion sobre el apartado de fecha de formacion -->
                         </div>
 
                     </div>
@@ -72,39 +76,43 @@
                     <div class="col">
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Area Formacion</label>
+                            <label for="" class="form-label">Area Formacion</label> <!--apartado para agregar el area de formacion  -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-book-half"></i></span>
+                                <span id="spans" class="input-group-text"><i class="bi bi-book-half"></i></span> <!--icono de area de formacion -->
+                                 <!-- validaciones a tomar en cuenta  -->
                                 <input id="textbox" type="text" minlength="20" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBformacionProfecional.AreaFormacion">
                             </div>
-                            <div id="" class="form-text">Agrege area de formacion</div>
+                            <div id="" class="form-text">Agrege area de formacion</div> <!-- descripcion sobre el apartado de area de formacion -->
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Cargo / Ocupacion</label>
+                            <label for="" class="form-label">Cargo / Ocupacion</label> <!--apartado para agregar el cargo / ocupacion  -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-postcard-fill"></i></span>
+                                 <span id="spans" class="input-group-text"><i class="bi bi-postcard-fill"></i></span> <!--icono de cargo / ocupacion -->
+                                 <!-- validaciones a tomar en cuenta  -->
                                 <input id="textbox" type="text" minlength="20" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBformacionProfecional.CargoOcupacion">
                             </div>
-                            <div id="" class="form-text">Agrege la ocupacion del solicitante</div>
+                            <div id="" class="form-text">Agrege la ocupacion del solicitante</div> <!-- descripcion sobre el apartado de ocupacion -->
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Institucion Trabajo</label>
+                            <label for="" class="form-label">Institucion Trabajo</label> <!--apartado para agregar la institucion de trabajo  -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-buildings-fill"></i></span>
+                                <span id="spans" class="input-group-text"><i class="bi bi-buildings-fill"></i></span> <!--icono de institucion de trabajo -->
+                                <!-- validaciones a tomar en cuenta  -->
                                 <input id="textbox" type="text" minlength="7" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBformacionProfecional.InstitucionTrabajo">
                             </div>
-                            <div id="" class="form-text">Agrege la institucion de trabajo</div>
+                            <div id="" class="form-text">Agrege la institucion de trabajo</div>  <!-- descripcion sobre el apartado de institucion de trabajo -->
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Fecha de trabajo</label>
+                            <label for="" class="form-label">Fecha de trabajo</label> <!--apartado para agregar la fecha de trabajo  -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-calendar2-check-fill"></i></span>
+                                <span id="spans" class="input-group-text"><i class="bi bi-calendar2-check-fill"></i></span> <!--icono de fecha de trabajo -->
+                                <!-- validaciones a tomar en cuenta  -->
                                 <input id="textbox" type="text" minlength="11" placeholder="ingresar..." class="form-control" onkeypress="" required asp-for="OBformacionProfecional.FechaTrabajo">
                             </div>
-                            <div id="" class="form-text">Agrege la fecha de trabajo</div>
+                            <div id="" class="form-text">Agrege la fecha de trabajo</div> <!-- descripcion sobre el apartado de fecha de trabajo -->
                         </div>
 
                     </div>

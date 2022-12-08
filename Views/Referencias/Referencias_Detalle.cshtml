@@ -3,76 +3,81 @@
     ViewData["Title"] = "Referencias_Detalle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+ <!-- metodo para identicar si se realizara una insersion o una modificacion a un registro  -->
     <div id="Atrabajador" class="card">
-
-        @if (Model.OBreferencia.Idreferencias == 0)
+        <!-- si no hay referencias nos mandara al campo de agregar -->
+        @if (Model.OBreferencia.Idreferencias == 0)  
         {
             <div id="cartaheader" class="card-header">
                 Agregar Referencias
             </div>
         }
-        else
-        {
+        else 
+        {   
+            <!--pero si existen nos mandara al campo de editarlas  -->
             <div id="cartaheader" class="card-header">
                 Editar Referencias <div id="espacio-solicitante"><div id="xd"><div id="envuelto"><select id="nuevoSelect" asp-for="OBreferencia.Idsolicitante" asp-items="@Model.listaSolicitante"></select></div></div></div>
             </div>
         }
 
         <div class="card-body">
-
+             <!-- permite mandar toda la informacion contenida dentro de los input al controlador que se le especifica -->
             <form asp-action="Referencias_Detalle" asp-controller="Referencias" asp-route-idsolicitante="@Model.OBreferencia.Idsolicitante" method="post">
 
                 <input type="hidden" class="form-control" asp-for="OBreferencia.Idreferencias" id="Id" aria-describedby="IDs">  
 
-                <div class="row">
+                <div class="row">  <!-- permite seccionar en columnas y filas la informacion -->
 
-                    <div class="col">
+                    <div class="col"> <!-- primero columna de informacion -->
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Solicitante</label>
+                            <label for="" class="form-label">Solicitante</label> <!-- apartado para solicitante -->
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-person-video"></i></span>
                                 <select id="textbox" class="form-select" required asp-for="OBreferencia.Idsolicitante" asp-items="@Model.listaSolicitante">
-                                    <option value="selected disable">Seleccionar Solicitante...</option>
+                                    <option value="selected disable">Seleccionar Solicitante...</option> 
                                 </select>
                             </div>
-                            <div id="" class="form-text">Nombre del solicitante (No modificable)</div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Referente Personal</label>
-                            <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-person-video2"></i></span>
-                                <input id="textbox" type="text" minlength="10" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBreferencia.ReferentePersonal">
-                            </div>
-                            <div id="" class="form-text">Agregue el nombre del refente personal</div>
+                            <div id="" class="form-text">Nombre del solicitante (No modificable)</div> <!-- descripcion sobre el apartado solicitante --> 
                         </div>
                         
                         <div class="mb-3">
-                            <label for="" class="form-label">Cel del referente personal</label>
+                            <label for="" class="form-label">Referente Personal</label> <!--apartado para agregar el referente personal  -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-telephone-plus-fill"></i></span>
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-video2"></i></span><!--icono de referente personal -->
+                                <!-- validaciones a tomar en cuenta a la hora de agregar al referente -->
+                                <input id="textbox" type="text" minlength="10" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBreferencia.ReferentePersonal">
+                            </div>
+                            <div id="" class="form-text">Agregue el nombre del refente personal</div><!-- descripcion sobre el apartado de referente personal -->
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="" class="form-label">Cel del referente personal</label><!-- apartado para el celular del referente personal -->
+                            <div class="input-group">
+                                <span id="spans" class="input-group-text"><i class="bi bi-telephone-plus-fill"></i></span><!-- icono para el celular del referente personal -->
+                                <!-- validaciones a tomar en cuenta a la hora de agregar el celular del referente personal -->
                                 <input id="textbox" type="text" minlength="8" maxlength="8" placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBreferencia.CellRefPersonal">
                             </div>
-                            <div id="" class="form-text">Agrege el celular del referente personal</div>
+                            <div id="" class="form-text">Agrege el celular del referente personal</div><!--descipcion sobre el celular del referente personal  -->
                         </div>
 
                     </div>
 
-                    <div class="col">
+                    <div class="col"> <!-- segunda columna de informacion -->
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Referente de trabajo</label>
+                        <label for="" class="form-label">Nombre del referente de trabajo</label> <!-- apartado para agregar el nombre del referente de trabajo -->
+  
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-person-video2"></i></span>
+                                <span id="spans" class="input-group-text"><i class="bi bi-person-video2"></i></span><!-- icono para el referente de trabajo-->
+                                 <!-- validaciones a tomar en cuenta a la hora de agregar el referente de trabajo -->
                                 <input id="textbox" type="text" minlength="10" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required asp-for="OBreferencia.ReferenteTrabajo">
                             </div>
-                            <div id="" class="form-text">Agrege el nombre del referente de trabajo</div>
+                            <div id="" class="form-text">Agrege el nombre del referente de trabajo</div> <!--descipcion sobre el nombre referente de trabajo  -->
                         </div>
                         
                         <div class="mb-3">
-                            <label for="" class="form-label">Cel del referente del trabajo</label>
+                            <label for="" class="form-label">Cel del referente del trabajo</label>  <!-- apartado para agregar el celular del referente de trabajo -->
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-telephone-plus-fill"></i></span>
                                 <input id="textbox" type="text" minlength="8" maxlength="8" placeholder="ingresar..." class="form-control" onkeypress="return SoloNumeros(event)" required asp-for="OBreferencia.CellRefTrabajo">
@@ -81,9 +86,9 @@
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col"> <!--tercera columna de informacion -->
 
-                        <div id="fotiA" class="card bg-warning text-dark bg-opacity-25">
+                        <div id="fotiA" class="card bg-warning text-dark bg-opacity-25"> <!--  -->
                             <img src="https://thumbs.dreamstime.com/b/tel%C3%A9fono-de-retenci%C3%B3n-manos-ilustraci%C3%B3n-videollamadas-llamada-inteligente-del-vector-selfie-chica-mujer-con-chat-aplicaciones-172866066.jpg" class="card-img-top" alt="...">
                             <div id="fotiB" class="card-body">
                                 <h5 class="card-title">Administrar Referencias</h5>
@@ -97,7 +102,7 @@
 
                 @if (Model.OBreferencia.Idreferencias == 0)
                 {
-
+                    <!-- si no se tiene referencia estaremos en agregar referencia por lo tanto el boton que aparecera sera el de agregar, el tipo submit hace que se ejecute el form-->
                     <button id="boton1" type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Agregar</button>
 
                      <a id="boton2" asp-action="Index" asp-controller="Solicitante" asp-route-idsolicitante="@Model.OBreferencia.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>
@@ -105,7 +110,7 @@
                 }
                 else
                 {
-
+                    <!-- pero si ya hay una referencia existente  estaremos en editar referencia por lo tanto el boton  sera el de  deditar -->
                     <button id="botonA" type="submit" class="btn btn-warning" style="color: white;"><i class="bi bi-plus-circle"></i> Editar</button>
 
                     <a id="boton2" asp-action="Index" asp-controller="Referencias" asp-route-idsolicitante="@Model.OBreferencia.Idsolicitante" class="btn btn-danger"><i class="bi bi-box-arrow-left"></i> Volver a la lista</a>

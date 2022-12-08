@@ -3,50 +3,52 @@
     ViewData["Title"] = "Destrezas_Detalle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<!-- metodo para identicar si se realizara una insersion o una modificacion a un registro  -->
     <div id="Atrabajador" class="card">
-
+        <!-- si no hay destrezas nos mandara al campo de agregar -->
         @if (Model.OBdestreza.Iddestrezas == 0)
         {
             <div id="cartaheader" class="card-header">
                 Agregar Destrezas 
             </div>
-        }
+        } 
         else
         {
+            <!--pero si existen nos mandara al campo de editarlas  -->
             <div id="cartaheader" class="card-header">
                 Editar Destrezas <div id="espacio-solicitante"><div id="xd"><div id="envuelto"><select id="nuevoSelect" asp-for="OBdestreza.Idsolicitante" asp-items="@Model.listaSolicitante"></select></div></div></div>  
             </div>
         }
 
         <div class="card-body">
-
+            <!-- permite mandar toda la informacion contenida dentro de los input al controlador que se le especifica -->
             <form asp-action="Destrezas_Detalle" asp-controller="Destrezas" asp-route-idsolicitante="@Model.OBdestreza.Idsolicitante" method="post">
 
                 <input type="hidden" class="form-control" asp-for="OBdestreza.Iddestrezas" id="Id" aria-describedby="IDs">  
 
-                <div class="row">
+                <div class="row"> <!-- permite seccionar en columnas y filas la informacion -->
 
-                    <div class="col">
+                    <div class="col"> <!-- primero columna de informacion -->
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Solicitante</label>
+                            <label for="" class="form-label">Solicitante</label> <!-- apartado para solicitante -->
                             <div class="input-group">
                                 <span id="spans" class="input-group-text"><i class="bi bi-person-video"></i></span>
                                 <select id="textbox" class="form-select" required asp-for="OBdestreza.Idsolicitante" asp-items="@Model.listaSolicitante">
                                     <option value="selected disable">Seleccionar Solicitante...</option>
                                 </select>
                             </div>
-                            <div id="" class="form-text">Nombre del solicitante (No modificable)</div>
+                            <div id="" class="form-text">Nombre del solicitante (No modificable)</div> <!-- descripcion sobre el apartado solicitante --> 
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Habilidades</label>
+                            <label for="" class="form-label">Habilidades</label> <!--apartado para agregar las habilidades  -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-bookmark-star-fill"></i></span>
-                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required minlength="30" asp-for="OBdestreza.Habilidades">
+                                <span id="spans" class="input-group-text"><i class="bi bi-bookmark-star-fill"></i></span> <!--icono de las habilidades -->
+                                <!-- validaciones a tomar en cuenta  -->
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required minlength="30" asp-for="OBdestreza.Habilidades">
                             </div>
-                            <div id="" class="form-text">Agregue las habilidades del solicitante</div>
+                            <div id="" class="form-text">Agregue las habilidades del solicitante</div> <!-- descripcion sobre el apartado de habilidades --> 
                         </div>
 
                     </div>
@@ -54,21 +56,23 @@
                     <div class="col">
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Competencias</label>
+                        <label for="" class="form-label">Competencias</label> <!--apartado para agregar las competencias  -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-clipboard2-data-fill"></i></span>
-                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required minlength="30" asp-for="OBdestreza.Competencias">
+                                <span id="spans" class="input-group-text"><i class="bi bi-clipboard2-data-fill"></i></span> <!--icono de las competencias -->
+                                <!-- validaciones a tomar en cuenta  -->
+                                <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="" required minlength="30" asp-for="OBdestreza.Competencias">
                             </div>
-                            <div id="" class="form-text">Agrege las competencias del solicitante</div>
+                            <div id="" class="form-text">Agrege las competencias del solicitante</div> <!-- descripcion sobre el apartado de competencias --> 
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Dominio</label>
+                        <label for="" class="form-label">Dominio</label> <!--apartado para agregar el dominio -->
                             <div class="input-group">
-                                <span id="spans" class="input-group-text"><i class="bi bi-pentagon-fill"></i></span>
+                                <span id="spans" class="input-group-text"><i class="bi bi-pentagon-fill"></i></span> <!--icono de el dominio -->
+                            <!-- validaciones a tomar en cuenta -->
                                 <input id="textbox" type="text" placeholder="ingresar..." class="form-control" onkeypress="return SoloLetras(event)" required minlength="15" asp-for="OBdestreza.Dominio">
                             </div>
-                            <div id="" class="form-text">Agrege el dominio del solicitante</div>
+                            <div id="" class="form-text">Agrege el dominio del solicitante</div> <!-- descripcion sobre el dominio --> 
                         </div>
 
                     </div>
