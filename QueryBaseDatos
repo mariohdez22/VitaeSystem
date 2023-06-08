@@ -1,0 +1,123 @@
+create database VitaeSystem
+
+create table tipo_trabajador
+(
+	idtipoTrabajador int identity(1,1) not null primary key,
+	tipoTrabajador varchar(50) not null
+)
+
+create table estado_trabajador
+(
+	idestadoTrabajador int identity(1,1) not null primary key,
+	estadoTrabajador varchar(50) not null
+)
+
+create table trabajador
+(
+	idtrabajador int identity(1,1) not null primary key,
+	nombre varchar(50) not null,
+	telefono varchar(50) not null,
+	email varchar(50) not null,
+	nickname varchar(50) not null,
+	idtipoTrabajador int not null references tipo_trabajador(idtipoTrabajador),
+	idestadoTrabajador int not null references estado_trabajador(idestadoTrabajador)
+)
+
+create table estado_solicitante
+(
+	idestadoSolicitante int identity(1,1) not null primary key,
+	estadoSolicitante varchar(50) not null
+)
+
+create table info_solicitante
+(
+	idsolicitante int identity(1,1) not null primary key,
+	idtrabajador int not null references trabajador(idtrabajador),
+	nombres varchar(50) not null,
+	apellidos varchar(50) not null,
+	celular varchar(50) not null,
+	email varchar(50) not null,
+	depto_vivienda varchar(100) not null,
+	objetivo varchar(50) not null,
+	foto varchar(50) not null,
+)
+
+alter table info_solicitante
+add idestadoSolicitante int not null references estado_solicitante(idestadoSolicitante);
+
+alter table info_solicitante
+alter column foto varchar(200);
+
+create table formacion_profecional
+(
+	idformacion int identity(1,1) not null primary key,
+	idsolicitante int not null references info_solicitante(idsolicitante),
+	titulo varchar(50) not null,
+	institucionProcedencia varchar(50) not null,
+	fechaFormacion varchar(50) not null,
+	areaFormacion varchar(50) not null,
+	cargoOcupacion varchar(50) not null,
+	institucionTrabajo varchar(50) not null,
+	fechaTrabajo varchar(50) not null,
+)
+
+create table destrezas 
+(
+	iddestrezas int identity(1,1) not null primary key,
+	idsolicitante int not null references info_solicitante(idsolicitante),
+	habilidades varchar(50) not null,
+	competencias varchar(50) not null,
+	dominio varchar(50) not null
+)
+
+alter table destrezas
+alter column habilidades varchar(200);
+
+alter table destrezas
+alter column competencias varchar(200);
+
+create table referencias 
+(
+	idreferencias int identity(1,1) not null primary key,
+	idsolicitante int not null references info_solicitante(idsolicitante),
+	referentePersonal varchar(50) not null,
+	cellRefPersonal varchar(50) not null,
+	referenteTrabajo varchar(50) not null,
+	cellRefTrabajo varchar(50) not null
+)
+
+insert into tipo_trabajador 
+values ('estandar'),
+	  ('gerencia'),
+	  ('administracion')
+
+insert into estado_trabajador
+values ('activo'),
+	  ('inactivo')
+
+insert into trabajador
+values ('Mario Oscar', 'Hernandez Hernandez', '73056953', 'herzmariohdez@gmail.com', 3, 1)
+
+insert into estado_solicitante
+values ('pendiente'),
+	  ('aceptado'),
+	  ('rechazado')
+
+insert into info_solicitante
+values (1, 'Josue Emanuel', 'Hernandez Ortega', '89403232', 'josue2704@gmail.com', 'zacamil-303', 'trabajo fijo', 'emanuel.jpg', 1)
+
+insert into formacion_profecional
+values (1, 'ingeniero en desarrollo de software', 'ITR', '2018 - 2020', 'tecnico en desarrollo de software', 'Estudiante Universitario', 'ninguna', 'ninguna')
+
+insert into destrezas
+values (1, 'aplicacion eficiente del paradigma funcional', 'desarrollo web, desarrollo de escritorio', 'desarrollador web')
+
+insert into referencias
+values (1, 'Dennis Urquiza', '76895645', 'Gerson Monroy', '74938933')
+
+select * from info_solicitante
+
+
+
+
+
